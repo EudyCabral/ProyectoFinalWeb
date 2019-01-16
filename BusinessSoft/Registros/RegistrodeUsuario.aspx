@@ -12,7 +12,7 @@
     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Registros
     <span class="caret"></span></button>
     <ul class="dropdown-menu">
-      <li><a href="../RegistrodeUsuario.aspx">Usuario</a></li>
+      <li><a href="../Registros/RegistrodeUsuario.aspx">Usuario</a></li>
       <li><a href="#">Cliente</a></li>
       <li><a href="#">Articulos</a></li>
     </ul>
