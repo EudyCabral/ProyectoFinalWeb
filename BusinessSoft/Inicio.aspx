@@ -20,10 +20,11 @@
       <h3>Mision &nbsp;</h3>
       <p>Nuestro objetivo es dar el mejor servicio a los clientes,segurdidad 
          y confianza para hacer de nosotros la mejor casa de empeño de la region.</p>
+            </div>
          <!--Fin de la Columna -->
    
         <!--Columna 2-->
-    </div>
+    
     <div class="col-sm-4">
       <h3>Vision</h3>
       <p>Procuramos ser transparentes, ser la mejor eleccion obtenida por los clientes

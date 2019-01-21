@@ -4,58 +4,147 @@
 
 <!DOCTYPE html>
 <html lang="en">
- <head runat="server">
-  <title>Inicio</title>
-   
- 
+<head runat="server">
+    <title>Inicio</title>
+
+
     <asp:ContentPlaceHolder ID="head" runat="server">
-        
-   
     </asp:ContentPlaceHolder>
 
 
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-                
-    <!-- Banner -->            
-<div style="background-color:gold;  height: 300px" class="jumbotron text-center " >
-      
-    <div class="column">
-        
-    <div class="col-xs-4">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <img alt="" src="file:///C:/Users/Eudy/Desktop/Aplicada%202/Tarea%201/baner1.png" style="width: 400px; height: 200px" />
-        
-    </div>
-        
-    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-    <h1 class="control-label col-sm-6">Compraventa Libertad</h1>
-  &nbsp;<p class="control-label col-sm-6">Seguridad-Garantia y Confianza</p> 
-</div>
-     <!--Fin del Banner-->
-
+    <style type="text/css">
+        .auto-style1 {
+            width: 450px;
+            height: 254px;
+        }
+    </style>
 
 </head>
 
 
 <body>
-   
-   
 
 
     <form id="form1" runat="server">
-        <div style="margin-top: 0px">
+
+        <%--Banner--%>
+        <div style="background-color: gold; height: 270px;" class="jumbotron jumbotron-fluid">
+            
+         
+            <div class="container">
+
+                <div class="row">
+
+                    <img class="rounded" src="Imagenes/baner1.png" alt="" style="width: 250px; height: 170px;">
+
+                    <div class="col-sm-7">
+                        <h1 style="text-align: center;" class="display-4">Compraventa Libertad</h1>
+
+                        <p style="text-align: center;" class="lead">Seguridad-Garantia y Confianza.</p>
+
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
+            
+         <div>
+
+
+        <%--  <asp:Image ID="Image1" runat="server" Height="170px" ImageUrl="~/Models/baner1.png" Width="200px" />
+        --%>
+
+        <!-- Barra de Navegacion -->
+              
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <!-- Brand -->
+            <a class="navbar-brand" href="http://localhost:59518/Inicio.aspx">
+                <asp:Image ID="Image1" runat="server" Height="40px" ImageUrl="~/Imagenes/baner1.png" Width="60px" /></a>
+
+            <!-- Links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost:59518/Inicio.aspx">Inicio</a>
+
+
+                    <!-- Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="Cuentas" data-toggle="dropdown">Cuentas
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Caja</a>
+                        </div>
+                    </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="Registros" data-toggle="dropdown">Registros
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="http://localhost:59518/Registros/RegistrodeUsuario.aspx#">Registro de Usuario</a>
+                        <a class="dropdown-item" href="#">Registro de Clientes</a>
+                        <a class="dropdown-item" href="#">Registro de Articulos</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="Consultas" data-toggle="dropdown">Consultas
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Consulta Usuario</a>
+                        <a class="dropdown-item" href="#">Consulta Clientes</a>
+                        <a class="dropdown-item" href="#">Consulta Articulos</a>
+                    </div>
+                </li>
+
+            </ul>
+        </nav>
+
+            </div>
+          </div>
+        
+            
+
+
+        <%--
+
+      
+
+        <div style="background-color:gold" class="jumbotron jumbotron-fluid"  >
+  <div class="container">
+     
+      
+
+    <h1 class="display-4">Compraventa Libertad</h1>
+    <p class="lead">Seguridad-Garantia y Confianza.</p>
+  </div>
+</div>
+        --%>
+
+
+
+
+
+
+
+         <div style="margin-top: 0px">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
-        </div>
+        </div><%-- --%>
     </form>
-   
+
 
 </body>
 </html>
