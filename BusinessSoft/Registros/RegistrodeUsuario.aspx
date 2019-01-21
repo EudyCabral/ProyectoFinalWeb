@@ -18,37 +18,38 @@
 
                 <h2 class="control-label col-sm-12">&nbsp;&nbsp;&nbsp; Registro de Usuario</h2>
 
-                 <label for="usuarioid">UsuarioId :</label>
-                <input class="form-control" id="usuarioid" type="text">
+                 <label for="usuarioid">UsuarioId :</label>       
+                
+                <asp:TextBox ID="usuarioid" runat="server" class="form-control" type="text"></asp:TextBox>
 
                 <label for="nombreinput">Nombre :</label>
-                <input class="form-control" id="nombreinput" type="text">
+                <asp:TextBox ID="nombreTextbox" runat="server" class="form-control" type="text"></asp:TextBox>
+              
 
-
-                <label for="cedulainput">Cedula :</label>
-                <input class="form-control" id="cedulainput" type="text">
+                <label for="cedulatextbox">Cedula :</label>
+                <asp:TextBox class="form-control" runat="server" id="cedulatextbox" type="text"></asp:TextBox>
 
                 <label for="Telefonoinput">Telefono :</label>
-                <input class="form-control" id="Telefonoinput" type="tel">
+                <asp:TextBox runat="server" class="form-control" id="Telefonoinput" type="tel"></asp:TextBox>
 
                 <label for="Usuarioinput">Nombre Usuario :</label>
-                <input class="form-control" id="Usuarioinput" type="text">
+                <asp:TextBox runat="server" class="form-control" id="Usuarioinput" type="text" ></asp:TextBox>
 
-                  <br />
+         
                  
-                <label for="TipodeAccesolb">TipodeAcceso :</label>
-                  <asp:DropDownList ID="TipodeAccesolb" runat="server" for="TipodeAccesolb">
+                <label for="TipodeAccesodrop">TipodeAcceso :</label>
+                  <asp:DropDownList class="form-control" ID="TipodeAccesodrop" runat="server" for="TipodeAccesolb">
                     <asp:ListItem>Administrador</asp:ListItem>
                     <asp:ListItem>Usuario</asp:ListItem>
                 
                 </asp:DropDownList>
-                  <br />
-
+             
                 <label for="pwd">Contraseña:</label>
-                <input type="password" class="form-control" id="pwd" placeholder="Digite Contraseña">
+                <asp:TextBox runat="server" type="password" class="form-control" id="pwd" placeholder="Digite Contraseña"></asp:TextBox>
 
                 <label for="confirmarpwd">Confirmar Contraseña:</label>
-                <input type="password" class="form-control" id="confirmarpwd" placeholder="Digite Contraseña">
+                
+                <asp:TextBox type="password" runat="server" class="form-control" id="confirmarpwd" placeholder="Digite Contraseña"></asp:TextBox>
 
                 
             </div> 
@@ -61,14 +62,16 @@
        <div class="panel">
                 <div class="text-center">
                     <div class="form-group">
-        
-         
-              
+                      
+                
+                <asp:Button  ID="ButtonNuevo" runat="server" Text="Nuevo" class="btn btn-info" OnClick="ButtonNuevo_Click"    />
 
-                <button ID="ButtonLimpiar" type="button" class="btn btn-info">Limpiar</button>
-                <button ID="ButtonGuardar" type="button" class="btn btn-success">Guardar</button>
-                <button ID="ButtonEliminar" type="button" class="btn btn-danger">Eliminar</button>
+               
+                <asp:Button ID="ButtonGuardar" runat="server" Text="Guardar" class="btn btn-success" OnClick="ButtonGuardar_Click"    />
                      
+                <asp:Button ID="ButtonEliminar" runat="server"  Text="Eliminar" class="btn btn-danger"   />
+                     
+                       
                  </div>  </div>    
            </div>
 

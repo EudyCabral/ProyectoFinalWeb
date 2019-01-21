@@ -5,7 +5,7 @@ go
 create table Usuarios
 (
 			
-			UsuariosId int Primary key identity(1,1),
+			UsuarioId int Primary key identity(1,1),
             Nombre Varchar(40),
             Cedula varchar(13),
             Telefono varchar(12),
