@@ -73,7 +73,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Consultar\ConsultaUsuario.aspx" />
+    <Content Include="Consultas\ConsultaUsuario.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Imagenes\Home_32.png" />
     <Content Include="Imagenes\usuario_32.png" />
@@ -83,11 +83,11 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Consultar\ConsultaUsuario.aspx.cs">
+    <Compile Include="Consultas\ConsultaUsuario.aspx.cs">
       <DependentUpon>ConsultaUsuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Consultar\ConsultaUsuario.aspx.designer.cs">
+    <Compile Include="Consultas\ConsultaUsuario.aspx.designer.cs">
       <DependentUpon>ConsultaUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">

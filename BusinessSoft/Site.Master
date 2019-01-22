@@ -88,7 +88,7 @@
                     <a class="nav-link dropdown-toggle"  href="#" id="Consultas" data-toggle="dropdown">Consultas
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Consulta Usuario</a>
+                        <a class="dropdown-item" href="http://localhost:59518/Consultas/ConsultaUsuario.aspx">Consulta Usuario</a>
                         <a class="dropdown-item" href="#">Consulta Clientes</a>
                         <a class="dropdown-item" href="#">Consulta Articulos</a>
                     </div>
