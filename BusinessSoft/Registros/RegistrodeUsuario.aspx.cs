@@ -48,7 +48,7 @@ namespace BusinessSoft.Registros
             Usuarioinput.Text = usuarios.Usuario;
 
 
-            TipodeAccesodrop.SelectedValue = Convert.ToInt32(usuarios.TipodeAcceso).ToString();
+            TipodeAccesodrop.Text = usuarios.TipodeAcceso;
 
             pwd.Text = usuarios.Contraseña;
 
@@ -161,6 +161,21 @@ namespace BusinessSoft.Registros
             else
 
                 repositorio.Eliminar(id);
+        }
+
+        protected void ButtonBuscar_Click(object sender, EventArgs e)
+        {
+            Repositorio<Usuarios> repositorio = new Repositorio<Usuarios>();
+            Usuarios usuario = repositorio.Buscar(Convert.ToInt32(usuarioid.Text));
+            if (usuario != null)
+            {
+                LlenaCampos(usuario);
+            }
+            else
+            {
+                Response.Write("<script>alert('Usuario no encontrado');</script>");
+
+            }
         }
     }
 }

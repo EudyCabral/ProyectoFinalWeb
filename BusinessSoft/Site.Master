@@ -8,9 +8,7 @@
     <title>Inicio</title>
 
 
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
-
+    
 
 
     <meta charset="utf-8">
@@ -22,13 +20,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+   
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
     <style type="text/css">
         .auto-style1 {
             width: 450px;
             height: 254px;
         }
     </style>
-
 </head>
 
 
@@ -36,40 +37,45 @@
 
 
     <form id="form1" runat="server">
+        
+       <header>
 
         <%--Banner--%>
         <div style="background-color: gold; height: 270px;" class="jumbotron jumbotron-fluid">
+
             
-         
-            <div class="container">
+
+ <div class="container">
 
                 <div class="row">
-
+                     
                     <img class="rounded" src="Imagenes/baner1.png" alt="" style="width: 250px; height: 170px;">
 
-                    <div class="col-sm-7">
+                    <div class="text-center">
                         <h1 style="text-align: center;" class="display-4">Compraventa Libertad</h1>
 
                         <p style="text-align: center;" class="lead">Seguridad-Garantia y Confianza.</p>
 
-
-
-                    </div>
+                        </div>
+            
+   
+                    
 
                 </div>
 
 
             </div>
-            
-         <div>
-
-
-        <%--  <asp:Image ID="Image1" runat="server" Height="170px" ImageUrl="~/Models/baner1.png" Width="200px" />
-        --%>
-
-        <!-- Barra de Navegacion -->
               
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        
+         
+        
+       
+            <section>
+           
+       
+        <div>
+        <!-- Barra de Navegacion -->
+               <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
             <!-- Brand -->
             <a class="navbar-brand" href="http://localhost:59518/Inicio.aspx">
                 <asp:Image ID="Image1" runat="server" Height="40px" ImageUrl="~/Imagenes/baner1.png" Width="60px" /></a>
@@ -111,29 +117,19 @@
 
             </ul>
         </nav>
+       
 
             </div>
-          </div>
+
+      
+    
         
             
-
-
-        <%--
-
-      
-
-        <div style="background-color:gold" class="jumbotron jumbotron-fluid"  >
-  <div class="container">
-     
-      
-
-    <h1 class="display-4">Compraventa Libertad</h1>
-    <p class="lead">Seguridad-Garantia y Confianza.</p>
-  </div>
-</div>
-        --%>
-
-
+                
+            </section>
+            </div>
+             </header>
+       
 
 
 
@@ -145,7 +141,7 @@
 
                <hr />
                 <footer style="text-align:center">
-                    <p> &copy; <%: DateTime.Now.Year %> - Copyright LabSoft RD</p>
+                    <p> &copy; <%: DateTime.Now.Year %> - CopyRight LabSoft RD</p>
                 </footer>
         </div>
     </form>

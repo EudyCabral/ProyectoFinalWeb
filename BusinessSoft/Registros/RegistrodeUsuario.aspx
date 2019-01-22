@@ -3,26 +3,41 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link rel="shortcut icon" href="../Imagenes/usuario_32.png" />
 </asp:Content>
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+     
+     
+    
     
     <div  class="form-group container">
-        <div class="row">
-
-
+        
+        <div class="row">            
             <div class="col-sm-4">
-
-
                 <h2 class="control-label col-sm-12">&nbsp;&nbsp;&nbsp; Registro de Usuario</h2>
 
-                 <label for="usuarioid">UsuarioId :</label>  
-                 <asp:TextBox ID="usuarioid" runat="server" class="form-control " type="number"></asp:TextBox>
+                
+                 
+                 
+
+                <div class="form-group">
+            <label for="usuarioid">UsuarioId :</label>  
+                    
+                    <asp:TextBox ID="usuarioid" runat="server" placeholder="0" class="form-control" type="number" ></asp:TextBox>
+                 </div>
+
+               <div class="form-group align-content-center">
+                        <asp:Button ID="ButtonBuscar" runat="server" Text="Buscar" class="btn btn-info btn-md" OnClick="ButtonBuscar_Click"  />
+                         
+            
+                                </div>
+               
 
                 <label for="nombreTextbox">Nombre :</label>
-                <asp:TextBox ID="nombreTextbox" runat="server" class="form-control" type="text"></asp:TextBox>
+                <asp:TextBox ID="nombreTextbox" runat="server" class="form-control" type="text" ></asp:TextBox>
               
 
                 <label for="cedulatextbox">Cedula :</label>
@@ -74,6 +89,9 @@
                      
                        
                  </div>  </div>    
-           </div>
+           </div>  
+    
 
+   
+    
 </asp:Content>
