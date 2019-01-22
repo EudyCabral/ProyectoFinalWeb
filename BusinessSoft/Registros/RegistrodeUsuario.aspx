@@ -17,7 +17,7 @@
         
         <div class="row">            
             <div class="col-sm-4">
-                <h2 class="control-label col-sm-12">&nbsp;&nbsp;&nbsp; Registro de Usuario</h2>
+                <h2 class="control-label col-sm-12" style="width:350px">&nbsp;&nbsp;&nbsp; Registro de Usuario</h2>
 
                 
                  
@@ -37,33 +37,33 @@
                
 
                 <label for="nombreTextbox">Nombre :</label>
-                <asp:TextBox ID="nombreTextbox" runat="server" class="form-control" type="text" ></asp:TextBox>
+                <asp:TextBox ID="nombreTextbox" runat="server" class="form-control" type="text" Width="350px" ></asp:TextBox>
               
 
                 <label for="cedulatextbox">Cedula :</label>
-                <asp:TextBox class="form-control" runat="server" id="cedulatextbox" type="text"></asp:TextBox>
+                <asp:TextBox class="form-control" runat="server" id="cedulatextbox" type="text" Width="350px" ></asp:TextBox>
 
                 <label for="Telefonoinput">Telefono :</label>
-                <asp:TextBox runat="server" class="form-control" id="Telefonoinput" type="tel"></asp:TextBox>
+                <asp:TextBox runat="server" class="form-control" id="Telefonoinput" type="tel" Width="350px" ></asp:TextBox>
 
                 <label for="Usuarioinput">Nombre Usuario :</label>
-                <asp:TextBox runat="server" class="form-control" id="Usuarioinput" type="text" ></asp:TextBox>
+                <asp:TextBox runat="server" class="form-control" id="Usuarioinput" type="text" Width="350px"  ></asp:TextBox>
 
          
                  
                 <label for="TipodeAccesodrop">TipodeAcceso :</label>
-                  <asp:DropDownList class="form-control" ID="TipodeAccesodrop" runat="server" for="TipodeAccesolb">
+                  <asp:DropDownList class="form-control" ID="TipodeAccesodrop" runat="server" for="TipodeAccesolb" Width="350px" >
                     <asp:ListItem>Administrador</asp:ListItem>
                     <asp:ListItem>Usuario</asp:ListItem>
                     
                 </asp:DropDownList>
              
                 <label for="pwd">Contraseña:</label>
-                <asp:TextBox runat="server" type="password" class="form-control" id="pwd" placeholder="Digite Contraseña"></asp:TextBox>
+                <asp:TextBox runat="server" type="password" class="form-control" id="pwd" placeholder="Digite Contraseña" Width="350px" ></asp:TextBox>
 
                 <label for="confirmarpwd">Confirmar Contraseña:</label>
                 
-                <asp:TextBox type="password" runat="server" class="form-control" id="confirmarpwd" placeholder="Digite Contraseña"></asp:TextBox>
+                <asp:TextBox type="password" runat="server" class="form-control" id="confirmarpwd" placeholder="Digite Contraseña" Width="350px" ></asp:TextBox>
                     
             </div> 
 
@@ -73,9 +73,9 @@
     </div>
 
        <div class="panel">
-                <div class="text-center">
-                    <asp:Label  id="ErrorLabel" runat="server" Text=""></asp:Label>
-                    <div class="form-group">
+                <div class="container"  style="Width:350px" >
+                    <asp:Label class="text-center "  id="ErrorLabel" runat="server" Text=""></asp:Label>
+                    <div class="form-group text-center " style="Width:350px">
                       
                 
                   

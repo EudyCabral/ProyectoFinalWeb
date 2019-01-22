@@ -7,17 +7,15 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
      <link rel="shortcut icon" href="Imagenes/baner1.png" />
+         
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-  
-
-
-       <div class="container">
-      <div class="row">
+   <div class="container ">
+      <div class="row ">
 
           <!--Columna 1-->
-        <div class="col-sm-4">
+        <div class="col-sm-4" style="width:350px">
       <h3>Mision &nbsp;</h3>
       <p>Nuestro objetivo es dar el mejor servicio a los clientes,segurdidad 
          y confianza para hacer de nosotros la mejor casa de empeño de la region.</p>
@@ -26,7 +24,7 @@
    
         <!--Columna 2-->
     
-    <div class="col-sm-4">
+    <div class="col-sm-4" style="width:350px">
       <h3>Vision</h3>
       <p>Procuramos ser transparentes, ser la mejor eleccion obtenida por los clientes
         y tener las mejores atenciones,ser los que mas valoran los articulos del cliente.</p>     
@@ -34,7 +32,7 @@
        <!--Fin de la Columna 
 
       <!--Columna 3-->
-    <div class="col-sm-4">
+    <div class="col-sm-4" style="width:350px">
       <h3>Valores</h3>         
     <ul>
      <li>Comunicacion Honesta y Abirertas.</li>
@@ -50,5 +48,8 @@
          
   </div>
 </div>
+
+
+ 
 
 </asp:Content>
