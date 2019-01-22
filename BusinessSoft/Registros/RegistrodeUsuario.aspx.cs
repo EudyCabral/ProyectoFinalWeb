@@ -15,26 +15,18 @@ namespace BusinessSoft.Registros
 
         }
 
-        public Usuarios LlenaClase(Usuarios usuario)
+        public Usuarios LlenaClase()
 
         {
-
-            int id;
-            bool result = int.TryParse(usuarioid.Text, out id);
-            if (result == true)
-            {
-                usuario.UsuarioId = id;
-            }
-            else
-            {
-                usuario.UsuarioId = 0;
-            }
-            usuario = (Usuarios)ViewState["Usuarios"];
+            Usuarios usuario = new Usuarios();
+          
+            usuario.UsuarioId = Convert.ToInt32(usuarioid.Text);
             usuario.Nombre = nombreTextbox.Text;
             usuario.Cedula = cedulatextbox.Text;
             usuario.Telefono = Telefonoinput.Text;
             usuario.Usuario = Usuarioinput.Text;
             usuario.TipodeAcceso = TipodeAccesodrop.Text;
+            usuario.Contraseña = pwd.Text;
             return usuario;
 
         }
@@ -91,48 +83,7 @@ namespace BusinessSoft.Registros
             Limpiar();
         }
 
-        protected void ButtonGuardar_Click(object sender, EventArgs e)
-        {
-            Repositorio<Usuarios> repositorio = new Repositorio<Usuarios>();
-
-            Usuarios usuarios = new Usuarios();
-
-            bool paso = false;
-
-
-
-            //todo: validaciones adicionales
-
-            LlenaClase(usuarios);
-
-
-
-            if (usuarios.UsuarioId == 0)
-
-                paso = repositorio.Guardar(usuarios);
-
-            else
-
-                paso = repositorio.Modificar(usuarios);
-
-
-
-            if (paso)
-
-            {
-
-                MostrarMensaje(TiposMensaje.Success, "Transaccion Exitosa!");
-
-                Limpiar();
-
-            }
-
-            else
-
-                MostrarMensaje(TiposMensaje.Error, "No fue posible terminar la transacción");
-
-
-        }
+        
 
         void MostrarMensaje(TiposMensaje tipo, string mensaje)
 
@@ -150,6 +101,49 @@ namespace BusinessSoft.Registros
 
                 ErrorLabel.CssClass = "alert-danger";
 
+        }
+
+        protected void ButtonGuardar_Click(object sender, EventArgs e)
+        {
+            Repositorio<Usuarios> repositorio = new Repositorio<Usuarios>();
+
+            Usuarios usuarios = LlenaClase();
+
+            bool paso = false;
+
+
+
+            //todo: validaciones adicionales
+
+            
+
+
+
+            if (usuarios.UsuarioId == 0)
+
+                paso = repositorio.Guardar(usuarios);
+
+            else
+
+                paso = repositorio.Modificar(usuarios);
+
+
+
+            if (paso)
+
+            {
+
+                MostrarMensaje(TiposMensaje.Success, "Registro Exitoso!");
+
+
+
+            }
+
+            else
+
+                MostrarMensaje(TiposMensaje.Error, "No fue posible Guardar el Registro");
+
+            Limpiar();
         }
     }
 }

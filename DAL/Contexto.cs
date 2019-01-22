@@ -13,7 +13,7 @@ namespace DAL
         {
 
            
-            public DbSet<Usuarios> usuarios { get; set; }
+            public DbSet<Usuarios> Usuarios { get; set; }
             
 
             public Contexto() : base("ConStr")

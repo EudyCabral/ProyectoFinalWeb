@@ -14,9 +14,9 @@ namespace BLL
     {
         internal Contexto _contexto;
 
-        public Repositorio(Contexto contexto)
+        public Repositorio()
         {
-            _contexto = contexto;
+            _contexto = new Contexto();
         }
 
 
