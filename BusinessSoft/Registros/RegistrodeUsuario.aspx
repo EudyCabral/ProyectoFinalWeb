@@ -70,7 +70,7 @@
                
                 <asp:Button ID="ButtonGuardar" runat="server" Text="Guardar" class="btn btn-success" OnClick="ButtonGuardar_Click"    />
                      
-                <asp:Button ID="ButtonEliminar" runat="server"  Text="Eliminar" class="btn btn-danger"   />
+                <asp:Button ID="ButtonEliminar" runat="server"  Text="Eliminar" class="btn btn-danger" OnClick="ButtonEliminar_Click"   />
                      
                        
                  </div>  </div>    

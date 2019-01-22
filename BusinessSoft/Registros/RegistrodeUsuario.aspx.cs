@@ -115,10 +115,6 @@ namespace BusinessSoft.Registros
 
             //todo: validaciones adicionales
 
-            
-
-
-
             if (usuarios.UsuarioId == 0)
 
                 paso = repositorio.Guardar(usuarios);
@@ -144,6 +140,27 @@ namespace BusinessSoft.Registros
                 MostrarMensaje(TiposMensaje.Error, "No fue posible Guardar el Registro");
 
             Limpiar();
+        }
+
+        protected void ButtonEliminar_Click(object sender, EventArgs e)
+        {
+            Repositorio<Usuarios> repositorio = new Repositorio<Usuarios>();
+
+            int id = Convert.ToInt32(usuarioid.Text);
+
+
+
+            var usuario = repositorio.Buscar(id);
+
+
+
+            if (usuario == null)
+
+                MostrarMensaje(TiposMensaje.Error, "Registro no encontrado");
+
+            else
+
+                repositorio.Eliminar(id);
         }
     }
 }
