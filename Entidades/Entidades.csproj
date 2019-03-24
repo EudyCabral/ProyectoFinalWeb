@@ -42,6 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Efectivos.cs" />
+    <Compile Include="Articulos.cs" />
+    <Compile Include="Clientes.cs" />
+    <Compile Include="EntradadeInversiones.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Usuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

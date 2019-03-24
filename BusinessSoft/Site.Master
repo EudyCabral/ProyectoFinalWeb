@@ -5,111 +5,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head runat="server">
-    <title>Inicio</title>
-
-
-
-
+    <title></title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <!-- Bootstrap CSS -->
 
-    </head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <%-- CSS--%>
+   
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <%-- asta aqui--%>
+
+    
+     <%--TOAST--%>
+    <link href="content/toastr.css" rel="stylesheet" />
+    <script src="Scripts/toastr.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+</head>
 
 
 <body>
 
 
     <form id="form1" runat="server">
-        <header>
 
-        <div style="background-color: gold; height: 270px;" class="jumbotron jumbotron-fluid">
-            <div class="container"  >
-            <div class="row" style="width: 853px;">
-            <img class="rounded" src="Imagenes/baner1.png" alt="" style="width: 250px; height: 170px;">
-            <div class="container"  style="width: 602px;">              
-            <h1 style="text-align: center; " top: 0px; class="display-4">Compraventa Libertad</h1>
 
-            <p style="text-align: center; " top: 0px; class="lead">Seguridad-Garantia y Confianza.</p>
 
+        <div style="background-color: gold; text-align: center">
+            <div class="container">
+
+
+                <div class="form-group row" style="align-items: center;">
+                    <div class="col-md-12">
+                        <img class="rounded " height="150" src="/Imagenes/baner1.png" alt="">
+                    </div>
+                    <asp:Label ID="Label1" Style="text-align: center;" class="col-md-12 display-4" runat="server" Text="Compraventa Libertad"></asp:Label>
+
+                    <asp:Label ID="Label2" Style="text-align: center;" class="col-md-12 lead" runat="server" Text="Seguridad-Garantia y Confianza."></asp:Label>
+                </div>
             </div>
-            
-
-             </div>
-
-             </div>
-
-            <br/>
-             
-
-           
-               <!-- Barra de Navegacion -->
-               <nav class="navbar navbar-expand-sm bg-dark navbar-dark ">
-            <!-- Brand -->
-            <a class="navbar-brand" href="http://localhost:59518/Inicio.aspx">
-                <asp:Image ID="Image1" runat="server" Height="40px" ImageUrl="~/Imagenes/baner1.png" Width="60px" /></a>
-
-            <!-- Links -->
-            <ul class="navbar-nav" style="width:400px">
-                <li class="nav-item">
-                    <a class="nav-link" href="http://localhost:59518/Inicio.aspx">Inicio</a>
 
 
-                    <!-- Dropdown -->
-                    <li class="nav-item dropdown" style="width:400px">
-                        <a class="nav-link dropdown-toggle" href="#" id="Cuentas" data-toggle="dropdown">Cuentas
-                        </a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Caja</a>
-                        </div>
-                    </li>
 
-                <li class="nav-item dropdown" style="width:400px">
-                    <a class="nav-link dropdown-toggle" href="#" id="Registros" data-toggle="dropdown">Registros
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="http://localhost:59518/Registros/RegistrodeUsuario.aspx#">Registro de Usuario</a>
-                        <a class="dropdown-item" href="#">Registro de Clientes</a>
-                        <a class="dropdown-item" href="#">Registro de Articulos</a>
-                    </div>
-                </li>
+            <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+                <img class="rounded" height="35" src="/Imagenes/baner1.png" alt="">
+                <a class="navbar-brand" href="/default.aspx">Compraventa Libertad</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                <li class="nav-item dropdown" style="width:400px">
-                    <a class="nav-link dropdown-toggle"  href="#" id="Consultas" data-toggle="dropdown">Consultas
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="http://localhost:59518/Consultas/ConsultaUsuario.aspx">Consulta Usuario</a>
-                        <a class="dropdown-item" href="#">Consulta Clientes</a>
-                        <a class="dropdown-item" href="#">Consulta Articulos</a>
-                    </div>
-                </li>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/default.aspx">Inicio <span class="sr-only">(current)</span></a>
+                        </li>
 
-            </ul>
-        </nav>
-         </div>
-       
-        </header>
+                        <li class="nav-item dropdown" style="color: #000000;">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Registros
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/UI/Registros/RegistrodeUsuario.aspx">Registro de Usuario</a>
+                                <a class="dropdown-item" href="#">Clientes</a>
+                                <a class="dropdown-item" href="#">Prestamos</a>
 
-       
-        <div style="margin-top: 100px">
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
+                            </div>
+                        </li>
 
-            <hr />
+
+                        <!-- Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="Cuentas" data-toggle="dropdown">Consultas
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="/UI/Consultas/CUsuarios.aspx">Consulta Usuario</a>
+                                <a class="dropdown-item" href="#">Clientes</a>
+                                <a class="dropdown-item" href="#">Prestamos</a>
+
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </nav>
+
+        </div>
+        <div style="margin-top: 30px">
+            <div class="container">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+
             <footer style="text-align: center">
+                <hr />
                 <p>&copy; <%: DateTime.Now.Year %> - CopyRight LabSoft RD</p>
             </footer>
         </div>
+
     </form>
 
 

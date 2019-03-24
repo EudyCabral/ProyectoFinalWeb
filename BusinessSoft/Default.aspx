@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="Inicio" 
     Language="C#" MasterPageFile="~/Site.Master" 
-    AutoEventWireup="true" CodeBehind="Inicio.aspx.cs" 
+    AutoEventWireup="true" CodeBehind="Default.aspx.cs" 
     Inherits="BusinessSoft.Registros.RegCliente" %>
 
 
@@ -11,11 +11,13 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container ">
-      <div class="row ">
-
+    
+    
+          <div class="rounded jumbotron jumbotron-fluid">
+  <div class="container">
+        <div class="row ">
           <!--Columna 1-->
-        <div class="col-sm-4" style="width:350px">
+        <div class="col-sm-4" >
       <h3>Mision &nbsp;</h3>
       <p>Nuestro objetivo es dar el mejor servicio a los clientes,segurdidad 
          y confianza para hacer de nosotros la mejor casa de empeño de la region.</p>
@@ -24,7 +26,7 @@
    
         <!--Columna 2-->
     
-    <div class="col-sm-4" style="width:350px">
+    <div class="col-sm-4">
       <h3>Vision</h3>
       <p>Procuramos ser transparentes, ser la mejor eleccion obtenida por los clientes
         y tener las mejores atenciones,ser los que mas valoran los articulos del cliente.</p>     
@@ -32,7 +34,7 @@
        <!--Fin de la Columna 
 
       <!--Columna 3-->
-    <div class="col-sm-4" style="width:350px">
+    <div class="col-sm-4" >
       <h3>Valores</h3>         
     <ul>
      <li>Comunicacion Honesta y Abirertas.</li>
@@ -50,6 +52,6 @@
 </div>
 
 
- 
+    </div>
 
 </asp:Content>

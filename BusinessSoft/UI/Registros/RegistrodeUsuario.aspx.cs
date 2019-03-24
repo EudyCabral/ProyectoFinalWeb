@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using _1erParcial.Utilidades;
+using BLL;
 using Entidades;
 using System;
 using System.Collections.Generic;
@@ -19,11 +20,12 @@ namespace BusinessSoft.Registros
 
         {
             Usuarios usuario = new Usuarios();
-          
-            usuario.UsuarioId = Convert.ToInt32(usuarioid.Text);
+
+            usuario.UsuarioId = util.ToInt(usuarioid.Text);
             usuario.Nombre = nombreTextbox.Text;
             usuario.Cedula = cedulatextbox.Text;
             usuario.Telefono = Telefonoinput.Text;
+            usuario.Email = emailinput.Text;
             usuario.Usuario = Usuarioinput.Text;
             usuario.TipodeAcceso = TipodeAccesodrop.Text;
             usuario.Contraseña = pwd.Text;
@@ -37,73 +39,56 @@ namespace BusinessSoft.Registros
         {
 
             usuarioid.Text = usuarios.UsuarioId.ToString();
-
             nombreTextbox.Text = usuarios.Nombre;
-
             cedulatextbox.Text = usuarios.Cedula;
-
-
             Telefonoinput.Text = usuarios.Telefono;
-
+            emailinput.Text = usuarios.Email;
             Usuarioinput.Text = usuarios.Usuario;
-
-
             TipodeAccesodrop.Text = usuarios.TipodeAcceso;
-
             pwd.Text = usuarios.Contraseña;
 
         }
 
         private void Limpiar()
-
         {
-
-          
-
             usuarioid.Text = "";
-
             nombreTextbox.Text = "";
-
             cedulatextbox.Text = "";
-
-
             Telefonoinput.Text = "";
-
+            emailinput.Text = "";
             Usuarioinput.Text = "";
-
-
             TipodeAccesodrop.SelectedValue = null;
-
             pwd.Text = "";
             confirmarpwd.Text = "";
         }
 
-        protected void ButtonNuevo_Click(object sender, EventArgs e)
+
+
+
+
+
+
+        protected void BuscarButton_Click(object sender, EventArgs e)
+        {
+            Repositorio<Usuarios> repositorio = new Repositorio<Usuarios>();
+            Usuarios usuario = repositorio.Buscar(Convert.ToInt32(usuarioid.Text));
+            if (usuario != null)
+            {
+                LlenaCampos(usuario);
+            }
+            else
+            {
+                Response.Write("<script>alert('Usuario no encontrado');</script>");
+
+            }
+        }
+
+        protected void ButtonNuevo_Click1(object sender, EventArgs e)
         {
             Limpiar();
         }
 
-        
-
-        void MostrarMensaje(TiposMensaje tipo, string mensaje)
-
-        {
-
-            ErrorLabel.Text = mensaje;
-
-
-
-            if (tipo == TiposMensaje.Success)
-
-                ErrorLabel.CssClass = "alert-success";
-
-            else
-
-                ErrorLabel.CssClass = "alert-danger";
-
-        }
-
-        protected void ButtonGuardar_Click(object sender, EventArgs e)
+        protected void ButtonGuardar_Click1(object sender, EventArgs e)
         {
             Repositorio<Usuarios> repositorio = new Repositorio<Usuarios>();
 
@@ -129,53 +114,30 @@ namespace BusinessSoft.Registros
 
             {
 
-                MostrarMensaje(TiposMensaje.Success, "Registro Exitoso!");
-
 
 
             }
 
             else
 
-                MostrarMensaje(TiposMensaje.Error, "No fue posible Guardar el Registro");
-
-            Limpiar();
+                Limpiar();
         }
 
-        protected void ButtonEliminar_Click(object sender, EventArgs e)
+        protected void ButtonEliminar_Click1(object sender, EventArgs e)
         {
             Repositorio<Usuarios> repositorio = new Repositorio<Usuarios>();
 
             int id = Convert.ToInt32(usuarioid.Text);
 
-
-
             var usuario = repositorio.Buscar(id);
-
-
 
             if (usuario == null)
 
-                MostrarMensaje(TiposMensaje.Error, "Registro no encontrado");
+            { }
 
             else
 
                 repositorio.Eliminar(id);
-        }
-
-        protected void ButtonBuscar_Click(object sender, EventArgs e)
-        {
-            Repositorio<Usuarios> repositorio = new Repositorio<Usuarios>();
-            Usuarios usuario = repositorio.Buscar(Convert.ToInt32(usuarioid.Text));
-            if (usuario != null)
-            {
-                LlenaCampos(usuario);
-            }
-            else
-            {
-                Response.Write("<script>alert('Usuario no encontrado');</script>");
-
-            }
         }
     }
 }
