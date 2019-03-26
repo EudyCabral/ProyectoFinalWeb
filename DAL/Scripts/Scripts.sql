@@ -15,6 +15,7 @@ create table Usuarios
             Contraseña varchar(40)
 );
 
+drop table Articulos
 go
 create table Articulos
 (
@@ -75,7 +76,8 @@ create TABLE Recibos
 );
 go
 
-
+drop table ReciboDetalles
+drop table Recibos
 go
 create TABLE ReciboDetalles
 (			
@@ -91,7 +93,8 @@ create TABLE ReciboDetalles
 );
 go
 
-
+select* from ReciboDetalles
+select* from Recibos
 select* from Usuarios
 
 select* from Articulos

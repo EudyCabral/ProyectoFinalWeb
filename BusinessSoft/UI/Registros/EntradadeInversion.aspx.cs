@@ -44,6 +44,7 @@ namespace BusinessSoft.Registros
 
         private void LlenaCampos(EntradadeInversiones entrada)
         {
+            
             InversionID.Text = entrada.InversionId.ToString();
 
             fechaTextbox.Text = entrada.Fecha.ToString("yyyy-MM-dd");
@@ -55,7 +56,7 @@ namespace BusinessSoft.Registros
         {
             int id = util.ToInt(InversionID.Text);
             EntradadeInversiones entrada = repositorio.Buscar(id);
-
+            
 
             if (entrada != null)
             {
@@ -64,7 +65,7 @@ namespace BusinessSoft.Registros
             else
             {
                 util.ShowToastr(this, "Numero de registro no fue encontrado.", "Informacion", "info");
-
+                Limpiar();
             }
 
         }

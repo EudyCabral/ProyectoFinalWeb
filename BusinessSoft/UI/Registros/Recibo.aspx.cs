@@ -56,12 +56,15 @@ namespace BusinessSoft.UI.Registros
         public void Limpiar()
         {
             ReciboId.Text = "";
-            FechaTextBox.Text = DateTime.Now.ToString();
+            FechaTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
             Cantidadinput.Text = "";
             Descripcion.Text = "";
             Montoinput.Text = "";
             MontoTotalTextBox.Text = "";
             DetalleGridView.DataBind();
+            MontoTotalTextBox.Visible = false;
+            totalLabel.Visible = false;
+
         }
 
         public void LimpiarA()
@@ -70,7 +73,7 @@ namespace BusinessSoft.UI.Registros
             Cantidadinput.Text = "";
             Descripcion.Text = "";
             Montoinput.Text = "";
-          
+            FechaTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
         }
         private Recibos LlenaClase()
         {
@@ -79,10 +82,10 @@ namespace BusinessSoft.UI.Registros
             recibo = (Recibos)ViewState["Recibos"];
             recibo.ReciboId = util.ToInt(ReciboId.Text);
             recibo.ClienteId = util.ToInt(ClienteDropDownList.SelectedValue);
-            recibo.NombredeCliente = util.RetornarNombre(ClienteDropDownList.Text);
+            recibo.NombredeCliente = util.RetornarNombreC(ClienteDropDownList.SelectedValue);
             recibo.Fecha = Convert.ToDateTime(FechaTextBox.Text);
             recibo.EfectivoId = 1;
-            recibo.MontoTotal = util.ToDecimal(Montoinput.Text);
+            recibo.MontoTotal = util.ToDecimal(MontoTotalTextBox.Text);
             recibo.Abono = 0;
             recibo.UltimaFechadeVigencia = Convert.ToDateTime(FechaTextBox.Text).AddDays(95);
 
@@ -93,7 +96,7 @@ namespace BusinessSoft.UI.Registros
 
         private void LlenaCampos(Recibos recibos)
         {
-
+           
             ReciboId.Text = recibos.ReciboId.ToString();
             FechaTextBox.Text = recibos.Fecha.ToString("yyyy-MM-dd");
             ClienteDropDownList.Text = recibos.ClienteId.ToString();
@@ -240,6 +243,7 @@ namespace BusinessSoft.UI.Registros
             else
             {
                 util.ShowToastr(this.Page, "No. de Recibo no Identificado!!", "Fallo!!", "error");
+                Limpiar();
             }
         }
 

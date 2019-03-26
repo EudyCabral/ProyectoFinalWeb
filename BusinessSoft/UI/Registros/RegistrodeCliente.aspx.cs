@@ -42,7 +42,6 @@ namespace BusinessSoft.Registros
 
         private void Llenacampo(Clientes clientes)
         {
-
             Clienteid.Text = clientes.ClienteId.ToString();
             nombreTextbox.Text = clientes.Nombre;
             cedulatextbox.Text = clientes.Cedula;

@@ -79,16 +79,38 @@ namespace BusinessSoft.UI.Consultas
 
 
             }
-
-            DatosGridView.DataSource = repositorio.GetList(filtro);
+            var lista = repositorio.GetList(filtro);
+            DatosGridView.DataSource = lista;
+            Session["inversion"] = lista;
+            CriterioTextBox.Text = "";  
             DatosGridView.DataBind();
-            CriterioTextBox.Text = "";
+       
+
+
+            if (DatosGridView.Rows.Count > 0)
+            {
+                ImprimirButton.Visible = true;
+            }
+            else { ImprimirButton.Visible = false; }
+
 
         }
 
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
             RetornaLista();
+        }
+
+        protected void DatosGridView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void ImprimirButton_Click(object sender, EventArgs e)
+        {
+
+            Response.Write("<script>window.open('/UI/VentanasReportes/VReporteEntradaCajaGeneral.aspx','_blank');</script");
+
         }
     }
 }

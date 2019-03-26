@@ -64,13 +64,10 @@ namespace BusinessSoft.Registros
 
 
 
-
-
-
-
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
             Repositorio<Usuarios> repositorio = new Repositorio<Usuarios>();
+
             Usuarios usuario = repositorio.Buscar(Convert.ToInt32(usuarioid.Text));
             if (usuario != null)
             {
@@ -78,8 +75,8 @@ namespace BusinessSoft.Registros
             }
             else
             {
-                Response.Write("<script>alert('Usuario no encontrado');</script>");
-
+                util.ShowToastr(this, "Numero de registro no fue encontrado.", "Informacion", "info");
+                Limpiar();
             }
         }
 
@@ -105,22 +102,33 @@ namespace BusinessSoft.Registros
                 paso = repositorio.Guardar(usuarios);
 
             else
+            {
 
-                paso = repositorio.Modificar(usuarios);
 
+                var user = repositorio.Buscar(usuarios.UsuarioId);
+
+                if (user != null)
+                {
+                    paso = repositorio.Modificar(usuarios);
+                }
+                else
+                {
+                    util.ShowToastr(this, "Numero de registro no fue encontrado. para ser Modificado", "Informacion", "info");
+                }
+            }
 
 
             if (paso)
 
             {
+                util.ShowToastr(this, "Regiistro Exitoso.", "Guardado", "success");
 
-
-
+                Limpiar();
             }
 
             else
-
-                Limpiar();
+                util.ShowToastr(this, "Registro no pudo ser Almacenado.", "Fallo!!", "error");
+           
         }
 
         protected void ButtonEliminar_Click1(object sender, EventArgs e)
@@ -133,11 +141,14 @@ namespace BusinessSoft.Registros
 
             if (usuario == null)
 
-            { }
+            { util.ShowToastr(this, "Usuario no existe para ser eliminado.", "Informacion", "info"); }
 
             else
+            {
 
                 repositorio.Eliminar(id);
+                util.ShowToastr(this, "Usuario Eliminado.", "Exito", "success");
+            }
         }
     }
 }

@@ -51,9 +51,9 @@ namespace _1erParcial.Utilidades
         public static string RetornarNombreC(string nombre)
         {
             Repositorio<Clientes> repositorio = new Repositorio<Clientes>();
-
+            int id = util.ToInt(nombre);
             string descripcion = string.Empty;
-            var lista = repositorio.GetList(x => x.Nombre.Equals(nombre));
+            var lista = repositorio.GetList(x => x.ClienteId == id);
             foreach (var item in lista)
             {
                 descripcion = item.Nombre;

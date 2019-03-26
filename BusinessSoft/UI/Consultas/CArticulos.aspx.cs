@@ -74,12 +74,18 @@ namespace BusinessSoft.UI.Consultas
                
 
             }
-
-            DatosGridView.DataSource = repositorio.GetList(filtro);
+            var lista = repositorio.GetList(filtro);
+            DatosGridView.DataSource = lista;
+            Session["Articulos"] = lista ;
             DatosGridView.DataBind();
             CriterioTextBox.Text = "";
 
 
+            if (DatosGridView.Rows.Count > 0)
+            {
+                ImprimirButton.Visible = true;
+            }
+            else { ImprimirButton.Visible = false; }
 
 
         }
@@ -88,6 +94,14 @@ namespace BusinessSoft.UI.Consultas
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
             RetornaLista();
+        }
+
+        protected void ImprimirButton_Click(object sender, EventArgs e)
+        {
+
+
+            Response.Write("<script>window.open('/UI/VentanasReportes/VReporteArticulos.aspx','_blank');</script");
+
         }
     }
 }

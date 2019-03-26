@@ -105,17 +105,32 @@ namespace BusinessSoft.UI.Consultas
 
             }
 
-            DatosGridView.DataSource = repositorio.GetList(filtro);
+            var lista = repositorio.GetList(filtro);
+            Session["usuarios"] = lista;
+
+            DatosGridView.DataSource = lista;
             DatosGridView.DataBind();
 
+            if (DatosGridView.Rows.Count > 0)
+            {
+                ImprimirButton.Visible = true;
+            }
+            else { ImprimirButton.Visible = false; }
 
-
-        
         }
 
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
             RetornaLista();
+        }
+
+        protected void ImprimirButton_Click(object sender, EventArgs e)
+        {
+
+
+            Response.Write("<script>window.open('/UI/VentanasReportes/VReporteUsuarios.aspx','_blank');</script");
+        
+
         }
     }
 }

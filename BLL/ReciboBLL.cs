@@ -15,16 +15,16 @@ namespace BLL
     {
         private static Usuarios user = new Usuarios();
 
-        public static void NombreLogin(string nombre,string tipodeusuario)
+        public static void NombreLogin(string nombre, string tipodeusuario)
         {
             user.Nombre = nombre;
             user.TipodeAcceso = tipodeusuario;
-        
+
         }
         public static Usuarios returnUsuario()
         {
             return user;
-            
+
         }
         public override bool Guardar(Recibos recibo)
         {
@@ -32,7 +32,7 @@ namespace BLL
             Contexto contexto = new Contexto();
 
 
-          
+
             try
             {
                 if (contexto.recibos.Add(recibo) != null)
@@ -43,9 +43,9 @@ namespace BLL
                     {
                         contexto.articulos.Find(item.ArticuloId).Inventario += item.Cantidad;
                     }
-                    
 
-                   contexto.efectivos.Find(recibo.EfectivoId).EfectivoCapital -= recibo.MontoTotal;
+
+                    contexto.efectivos.Find(recibo.EfectivoId).EfectivoCapital -= recibo.MontoTotal;
 
                     contexto.SaveChanges();
                     paso = true;
@@ -162,7 +162,7 @@ namespace BLL
         public override bool Modificar(Recibos recibo)
         {
             bool paso = false;
-            
+
 
             Repositorio<Recibos> repo = new Repositorio<Recibos>();
 
@@ -173,43 +173,59 @@ namespace BLL
                 Repositorio<Articulos> repoA = new Repositorio<Articulos>();
 
 
+                _contexto = new Contexto();
+
+
+                Contexto contexto = new Contexto();
+
+                
                 if (recibos != null)
                 {
+                    var ArticuloAnt = _contexto.recibosdetalles.Where(x => x.ReciboId == recibo.ReciboId).AsNoTracking().ToList();
 
-
-                    foreach (var item in recibos.Detalle)
+                    foreach (var item in ArticuloAnt)
                     {
 
 
-                        _contexto.articulos.Find(item.ArticuloId).Inventario -= item.Cantidad;
+                        //var art = _contexto.articulos.Where(x => x.ArticuloId == item.ArticuloId).AsNoTracking().ToList();
 
-
-                        if (!recibo.Detalle.ToList().Exists(v => v.ID == item.ID))
+                        foreach (var item2 in repoA.GetList(x => x.ArticuloId == item.ArticuloId))
                         {
+                            contexto.articulos.Find(item.ArticuloId).Inventario -= item.Cantidad;
+                            contexto.SaveChanges();
                         
-
-                            item.articulos = null;
-
-                            _contexto.Entry(item).State = EntityState.Deleted;
                         }
-                      
-                    }
 
+                        _contexto.Entry(item).State = System.Data.Entity.EntityState.Deleted;
+
+                    }
 
 
                     foreach (var item in recibo.Detalle)
                     {
-                        var ARTI = _contexto.articulos.Where(x => x.ArticuloId == item.ArticuloId).AsNoTracking().ToList().FirstOrDefault();
 
-                        ARTI.Inventario += item.Cantidad;
 
-                        var estado = item.ID > 0 ? EntityState.Modified : EntityState.Added;
-                        _contexto.Entry(item).State = estado;
+                        //var art = _contexto.articulos.Where(x => x.ArticuloId == item.ArticuloId).AsNoTracking().ToList();
+
+                        foreach (var item2 in repoA.GetList(x => x.ArticuloId == item.ArticuloId))
+                        {
+                            contexto.articulos.Find(item.ArticuloId).Inventario += item.Cantidad;
+                            contexto.SaveChanges();
+                        
+
+                        }
+
+                        //var estado = item.ID > 0 ? EntityState : EntityState.Added;
+
+                        _contexto.Entry(item).State = EntityState.Added;
+
                     }
 
 
+
+
                     Recibos EntradaAnterior = repo.Buscar(recibo.ReciboId);
-                  
+
 
                     //identificar la diferencia ya sea restada o sumada
                     decimal diferencia;
@@ -220,13 +236,11 @@ namespace BLL
                     Efectivos efectivos = repositorio.Buscar(recibo.EfectivoId);
                     efectivos.EfectivoCapital += diferencia;
                     repositorio.Modificar(efectivos);
-
-
+                    ;
                     _contexto.Entry(recibo).State = EntityState.Modified;
                 }
 
-
-
+                
                 if (_contexto.SaveChanges() > 0)
                 {
                     paso = true;
@@ -247,7 +261,7 @@ namespace BLL
             try
             {
                 recibo = contexto.recibos.Where(expression).ToList();
-               
+
                 foreach (var item in recibo)
                 {
                     item.Detalle.Count();
@@ -285,10 +299,10 @@ namespace BLL
                 recibos.Abono = Math.Abs(recibos.Abono - diferencia);
 
 
-          
+
 
                 contexto.Entry(recibo).State = EntityState.Modified;
-            
+
 
 
                 if (contexto.SaveChanges() > 0)

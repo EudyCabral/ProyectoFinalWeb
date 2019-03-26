@@ -121,6 +121,39 @@
     <Content Include="UI\Registros\RegistrodeCliente.aspx" />
     <Content Include="content\toastr.scss" />
     <Content Include="content\toastr.less" />
+    <Content Include="BusinessSoftDBDataSet.xsc">
+      <DependentUpon>BusinessSoftDBDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="BusinessSoftDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BusinessSoftDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="BusinessSoftDBDataSet.xss">
+      <DependentUpon>BusinessSoftDBDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="BusinessSoftDBDataSetUsuarios.xsc">
+      <DependentUpon>BusinessSoftDBDataSetUsuarios.xsd</DependentUpon>
+    </Content>
+    <Content Include="BusinessSoftDBDataSetCOM.xsc">
+      <DependentUpon>BusinessSoftDBDataSetCOM.xsd</DependentUpon>
+    </Content>
+    <None Include="BusinessSoftDBDataSetCOM.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BusinessSoftDBDataSetCOM.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="BusinessSoftDBDataSetCOM.xss">
+      <DependentUpon>BusinessSoftDBDataSetCOM.xsd</DependentUpon>
+    </Content>
+    <None Include="BusinessSoftDBDataSetUsuarios.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BusinessSoftDBDataSetUsuarios.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="BusinessSoftDBDataSetUsuarios.xss">
+      <DependentUpon>BusinessSoftDBDataSetUsuarios.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -141,11 +174,30 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="UI\VentanasReportes\VReporteArticulos.aspx" />
+    <Content Include="UI\VentanasReportes\VReporteClientes.aspx" />
+    <Content Include="UI\VentanasReportes\VReporteEntradaCajaGeneral.aspx" />
+    <Content Include="UI\VentanasReportes\VReporteUsuarios.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessSoftDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BusinessSoftDBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessSoftDBDataSetCOM.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BusinessSoftDBDataSetCOM.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessSoftDBDataSetUsuarios.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BusinessSoftDBDataSetUsuarios.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -242,6 +294,34 @@
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="UI\VentanasReportes\VReporteArticulos.aspx.cs">
+      <DependentUpon>VReporteArticulos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\VentanasReportes\VReporteArticulos.aspx.designer.cs">
+      <DependentUpon>VReporteArticulos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\VentanasReportes\VReporteClientes.aspx.cs">
+      <DependentUpon>VReporteClientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\VentanasReportes\VReporteClientes.aspx.designer.cs">
+      <DependentUpon>VReporteClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\VentanasReportes\VReporteEntradaCajaGeneral.aspx.cs">
+      <DependentUpon>VReporteEntradaCajaGeneral.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\VentanasReportes\VReporteEntradaCajaGeneral.aspx.designer.cs">
+      <DependentUpon>VReporteEntradaCajaGeneral.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\VentanasReportes\VReporteUsuarios.aspx.cs">
+      <DependentUpon>VReporteUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\VentanasReportes\VReporteUsuarios.aspx.designer.cs">
+      <DependentUpon>VReporteUsuarios.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Utilidades\util.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -272,6 +352,18 @@
       <Project>{1F75D601-57E7-40DC-A613-F7C4FC841BA2}</Project>
       <Name>Entidades</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reportes\ListaCliente.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reportes\ListaUsuarios.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reportes\ListaArticulos.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reportes\ListaEntrada.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

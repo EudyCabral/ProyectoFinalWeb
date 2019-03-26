@@ -42,6 +42,7 @@ namespace BusinessSoft.Registros
 
         private void LlenaCampos(Articulos articulos)
         {
+    
             articuloid.Text = articulos.ArticuloId.ToString();
             nombreTextbox.Text = articulos.Nombre;
             Inventario.Text = articulos.Inventario.ToString();
@@ -64,6 +65,8 @@ namespace BusinessSoft.Registros
             else
             {
                 util.ShowToastr(this.Page, "El Articulo con el ID que andas buscando no se encuentra Registrado!!", "Informacion!!", "info");
+
+                Limpiar();
             }
 
 

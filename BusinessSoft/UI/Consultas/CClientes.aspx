@@ -44,8 +44,7 @@
         </div>
     
         <%--Grid--%>
-       
-    <div class="panel-body">
+  
          <div class="form-horizontal col-md-12" role="form">
             <div class="table-responsive">
                 <asp:GridView ID="DatosGridView" runat="server" class="table table-condensed table-responsive" CellPadding="6" ForeColor="#333333" GridLines="None" AutoGenerateColumns="True">
@@ -55,6 +54,17 @@
                     <RowStyle BackColor="#EFF3FB" />
                 </asp:GridView>
             </div>
-             </div>
+
+             
+    
+        <div class="form-group row" style="align-items: center;">
+
+            <div class="col-md-3 col-sm-3 col-xl-3 col-3">
+                <asp:Button ID="ImprimirButton" runat="server" Text="Imprimir" class="btn btn-success"  Enabled="True" EnableViewState="True" Visible="False" OnClick="ImprimirButton_Click" />
+            </div>
+
         </div>
+             </div>
+  
+
 </asp:Content>
