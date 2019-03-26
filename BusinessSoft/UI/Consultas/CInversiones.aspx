@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Consulta de Entrada Capital" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CInversiones.aspx.cs" Inherits="BusinessSoft.UI.Consultas.CEntradadeEfectivo" %>
+﻿<%@ Page Title="Consulta Entrada Efectivo" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CInversiones.aspx.cs" Inherits="BusinessSoft.UI.Consultas.CEntradadeEfectivo" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -35,9 +35,35 @@
 
                 </div>
                 <div class="col-md-1">
-                    <asp:Button ID="BuscarButton" runat="server" Text="Buscar" class="btn btn-info btn-md"  />
+                    <asp:Button ID="BuscarButton" runat="server" Text="Buscar" class="btn btn-info btn-md" OnClick="BuscarButton_Click"  />
                 </div>
             </div>
+            <%--Hasta Aqui--%>
+
+            <%--fecha--%>
+            <div class="form-group control-label" style="align-items: center;">
+
+                <asp:Label ID="Label2" Style="font-size: medium;" runat="server" class="col-md-1 " Text="Desde:"></asp:Label>
+
+                <div class="col-md-2">
+                
+                      <asp:TextBox ID="DesdeTextBox" runat="server" class="form-control input-sm" Style="font-size: medium" TextMode="Date"></asp:TextBox>
+
+                </div>
+                <asp:Label ID="Label3" Style="font-size: medium;" runat="server" Text="Hasta:" class="col-md-1 input-sm"></asp:Label>
+
+
+                <div class="col-md-2">
+                    <asp:TextBox ID="HastaTextBox" runat="server" class="form-control input-sm" Style="font-size: medium" TextMode="Date"></asp:TextBox>
+
+                </div>
+               
+            </div>
+
+
+
+
+
         </div>
         </div>
     
@@ -46,9 +72,15 @@
     <div class="panel-body">
          <div class="form-horizontal col-md-12" role="form">
             <div class="table-responsive">
-                <asp:GridView ID="DatosGridView" runat="server" class="table table-condensed table-responsive" CellPadding="6" ForeColor="#333333" GridLines="None" AutoGenerateColumns="True">
+                <asp:GridView ID="DatosGridView" runat="server" class="table table-condensed table-responsive" CellPadding="6" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False">
                     <AlternatingRowStyle BackColor="White" />
-                    
+                     <Columns>
+                               <asp:BoundField DataField="InversionId" HeaderText="Inversion Id" />
+                                <asp:BoundField DataField="Fecha" HeaderText="Fecha" />
+                                <asp:BoundField DataField="Motivo" HeaderText="Motivo" />
+                                <asp:BoundField DataField="Monto" HeaderText="Monto" />
+                                
+                                </Columns>
                     <HeaderStyle BackColor="Black" Font-Bold="true" ForeColor="White" />
                     <RowStyle BackColor="#EFF3FB" />
                 </asp:GridView>

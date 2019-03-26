@@ -37,7 +37,7 @@
 
                 </div>
                 <div class="col-md-1">
-                    <asp:Button ID="BuscarButton" runat="server" Text="Buscar" class="btn btn-info btn-md"  />
+                    <asp:Button ID="BuscarButton" runat="server" Text="Buscar" class="btn btn-info btn-md" OnClick="BuscarButton_Click"  />
                 </div>
             </div>
         </div>

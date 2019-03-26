@@ -21,9 +21,9 @@ namespace BusinessSoft.Registros
         private void Limpiar()
         {
             articuloid.Text = "";
-            nombreTextbox.Text ="";
-            Inventario.Text ="" ;
-          
+            nombreTextbox.Text = "";
+            Inventario.Text = "";
+
         }
 
 
@@ -32,7 +32,7 @@ namespace BusinessSoft.Registros
         {
             Articulos articulos = new Articulos();
 
-        
+
             articulos.ArticuloId = util.ToInt(articuloid.Text);
             articulos.Nombre = nombreTextbox.Text;
             articulos.Inventario = util.ToInt(Inventario.Text);
@@ -51,28 +51,28 @@ namespace BusinessSoft.Registros
 
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
-          
-                int id = util.ToInt(articuloid.Text);
-                Articulos articulos = repositorio.Buscar(id);
 
-                if (articulos != null)
-                {
+            int id = util.ToInt(articuloid.Text);
+            Articulos articulos = repositorio.Buscar(id);
+
+            if (articulos != null)
+            {
                 LlenaCampos(articulos);
                 util.ShowToastr(this, "Registro de Articulo Encontrado", "Exito", "success");
 
             }
             else
-                {
+            {
                 util.ShowToastr(this.Page, "El Articulo con el ID que andas buscando no se encuentra Registrado!!", "Informacion!!", "info");
-                }
-              
-            
+            }
+
+
         }
 
         protected void ButtonGuardar_Click(object sender, EventArgs e)
         {
             bool paso = false;
-            
+
             Articulos articulos = Llenaclase();
             int id = util.ToInt(articuloid.Text);
 
@@ -91,8 +91,8 @@ namespace BusinessSoft.Registros
                     paso = repositorio.Modificar(articulos);
                 }
                 else
-                 
-                util.ShowToastr(this, "Registro no Existe, no puedo modificar", "Informacion", "info");
+
+                    util.ShowToastr(this, "Registro no Existe, no puedo modificar", "Informacion", "info");
             }
 
 
@@ -106,32 +106,32 @@ namespace BusinessSoft.Registros
             }
             else
             {
-              
+
 
                 util.ShowToastr(this, "No Pudo Guardar", "Fallo", "error");
 
             }
         }
-            
 
-            protected void ButtonEliminar_Click(object sender, EventArgs e)
+
+        protected void ButtonEliminar_Click(object sender, EventArgs e)
         {
-          
-              int id = util.ToInt(articuloid.Text);
 
-                if (repositorio.Eliminar(id))
-                {
+            int id = util.ToInt(articuloid.Text);
+
+            if (repositorio.Eliminar(id))
+            {
                 util.ShowToastr(this.Page, "Registro Eliminado con Exito!!", "Eliminado!!", "success");
 
                 Limpiar();
-                }
-                else
-                {
+            }
+            else
+            {
 
                 util.ShowToastr(this.Page, "Registro de Articulo no Existe", "Fallo", "error");
 
-                }
-           
+            }
+
         }
 
         protected void ButtonNuevo_Click(object sender, EventArgs e)

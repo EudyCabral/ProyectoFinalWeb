@@ -9,18 +9,18 @@ namespace ENTIDADES
     {
         [Key]
         public int InversionId { get; set; }
-        public DateTime Fecha { get; set; }
-        public int ActivodeNegocioId { get; set; }
+        public int EfectivoId { get; set; }
+        public DateTime Fecha { get; set; }        
         public string Motivo { get; set; }
-        public decimal Suma { get; set; }
+        public decimal Monto { get; set; }
 
         public EntradadeInversiones()
         {
             InversionId = 0;
             Fecha = DateTime.Now;
-            ActivodeNegocioId = 0;
+            EfectivoId = 0;
             Motivo = string.Empty;
-            Suma = 0;
+            Monto = 0;
         }
     }
 }

@@ -29,7 +29,7 @@
                 <asp:RequiredFieldValidator ID="ClienteidValidator" runat="server" Text="*" ValidateRequestMode="Inherit" ControlToValidate="Clienteid" ValidationGroup="ValidacionBE" ForeColor="Red" Font-Bold="True" Font-Size="X-Large"></asp:RequiredFieldValidator>
 
                 <div class="col-md-1 col-sm-2 col-xs-4">
-                    <asp:Button ID="BuscarButton" runat="server" Text="Buscar" ValidationGroup="ValidacionBE" class="btn btn-info btn-md" />
+                    <asp:Button ID="BuscarButton" runat="server" Text="Buscar" ValidationGroup="ValidacionBE" class="btn btn-info btn-md" OnClick="BuscarButton_Click" />
                 </div>
             </div>
 
@@ -98,11 +98,11 @@
     <div class="panel">
         <div class="text-center">
             <div class="form-group">
-                <asp:Button ID="ButtonNuevo" runat="server" Text="Nuevo" class="btn btn-info" />
+                <asp:Button ID="ButtonNuevo" runat="server" Text="Nuevo" class="btn btn-info" OnClick="ButtonNuevo_Click" />
 
-                <asp:Button ID="ButtonGuardar" runat="server" ValidationGroup="ValidacionGM" Text="Guardar" class="btn btn-success" />
+                <asp:Button ID="ButtonGuardar" runat="server" ValidationGroup="ValidacionGM" Text="Guardar" class="btn btn-success" OnClick="ButtonGuardar_Click" />
 
-                <asp:Button ID="ButtonEliminar" runat="server" Text="Eliminar" ValidationGroup="ValidacionBE" class="btn btn-danger" />
+                <asp:Button ID="ButtonEliminar" runat="server" Text="Eliminar" ValidationGroup="ValidacionBE" class="btn btn-danger" OnClick="ButtonEliminar_Click" />
 
             </div>
         </div>

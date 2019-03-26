@@ -29,14 +29,14 @@
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
     <%-- CSS--%>
-   
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <%-- asta aqui--%>
 
-    
-     <%--TOAST--%>
+
+    <%--TOAST--%>
     <link href="content/toastr.css" rel="stylesheet" />
     <script src="Scripts/toastr.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
@@ -55,7 +55,7 @@
             <div class="container">
 
 
-                <div class="form-group row" style="align-items: center;">
+                <div class="form-group  row" style="align-items: center;">
                     <div class="col-md-12">
                         <img class="rounded " height="150" src="/Imagenes/baner1.png" alt="">
                     </div>
@@ -79,27 +79,39 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="/default.aspx">Inicio <span class="sr-only">(current)</span></a>
                         </li>
+                        <!-- Dropdown Cuentas-->
+                        <li class="nav-item dropdown" style="color: #000000;">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdowncuentas" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cuentas
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/UI/Cuentas/Caja General.aspx">Caja General</a>
+                            </div>
+                        </li>
 
+                        <!-- Dropdown Registros-->
                         <li class="nav-item dropdown" style="color: #000000;">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Registros
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/UI/Registros/RegistrodeCliente.aspx">Clientes</a>
+                                <a class="dropdown-item" href="/UI/Registros/RegistrodeArticulos.aspx">Articulos</a>
+                                <a class="dropdown-item" href="/UI/Registros/Recibo.aspx">Recibo</a>
+                                <a class="dropdown-item" href="/UI/Registros/EntradadeInversion.aspx">Entrada de Inversion</a>
                                 <a class="dropdown-item" href="/UI/Registros/RegistrodeUsuario.aspx">Registro de Usuario</a>
-                                <a class="dropdown-item" href="#">Clientes</a>
-                                <a class="dropdown-item" href="#">Prestamos</a>
-
                             </div>
                         </li>
 
 
-                        <!-- Dropdown -->
+                        <!-- Dropdown Consultas-->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="Cuentas" data-toggle="dropdown">Consultas
                             </a>
                             <div class="dropdown-menu">
+
+                                <a class="dropdown-item" href="/UI/Consultas/CClientes.aspx">Clientes</a>
+                                <a class="dropdown-item" href="/UI/Consultas/CArticulos.aspx">Articulos</a>
+                                <a class="dropdown-item" href="/UI/Consultas/CInversiones.aspx">Enrada de Inversion</a>
                                 <a class="dropdown-item" href="/UI/Consultas/CUsuarios.aspx">Consulta Usuario</a>
-                                <a class="dropdown-item" href="#">Clientes</a>
-                                <a class="dropdown-item" href="#">Prestamos</a>
 
                             </div>
                         </li>

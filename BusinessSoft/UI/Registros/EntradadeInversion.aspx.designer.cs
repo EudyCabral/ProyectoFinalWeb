@@ -10,7 +10,7 @@
 namespace BusinessSoft.Registros {
     
     
-    public partial class EntradadeActivos {
+    public partial class EntradadeInversion {
         
         /// <summary>
         /// InversionID control.

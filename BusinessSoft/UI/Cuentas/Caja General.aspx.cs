@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL;
+using ENTIDADES;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +13,22 @@ namespace BusinessSoft.UI.Cuentas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            ActualizaCuenta();
         }
+
+        protected void Buttonrefrescar_Click(object sender, EventArgs e)
+        {
+            ActualizaCuenta();
+        }
+
+
+        public void ActualizaCuenta()
+        {
+            Repositorio<Efectivos> repositorio = new Repositorio<Efectivos>(); 
+            Efectivos efectivo = repositorio.Buscar(1);
+            TextBoxefectivo.Text = $"${efectivo.EfectivoCapital.ToString()}";
+            
+        }
+
     }
 }

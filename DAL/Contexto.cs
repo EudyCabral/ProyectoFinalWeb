@@ -18,6 +18,7 @@ namespace DAL
         public DbSet<Clientes> clientes { get; set; }
         public DbSet<Articulos> articulos { get; set; }
         public DbSet<Efectivos> efectivos { get; set; }
+        public DbSet<Recibos> recibos { get; set; }
         public DbSet<EntradadeInversiones> entradadeInversiones { get; set; }
 
 

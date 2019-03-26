@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Entrada de Inversion" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EntradadeInversion.aspx.cs" Inherits="BusinessSoft.Registros.EntradadeActivos" %>
+﻿<%@ Page Title="Entrada Inversion" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EntradadeInversion.aspx.cs" Inherits="BusinessSoft.Registros.EntradadeInversion" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -23,7 +23,7 @@
 
 
                 <div class="col-md-1 col-sm-2 col-xs-4">
-                    <asp:Button ID="BuscarButton" runat="server" Text="Buscar" ValidationGroup="ValidacionBE" class="btn btn-info btn-md" />
+                    <asp:Button ID="BuscarButton" runat="server" Text="Buscar" ValidationGroup="ValidacionBE" class="btn btn-info btn-md" OnClick="BuscarButton_Click" />
                 </div>
                   <%--hasta aqui--%>
               
@@ -77,12 +77,12 @@
             <div class="panel">
                 <div class="text-center">
                     <div class="form-group">
-                        <asp:Button ID="ButtonNuevo" runat="server" Text="Nuevo" class="btn btn-info"  />
+                        <asp:Button ID="ButtonNuevo" runat="server" Text="Nuevo" class="btn btn-info" OnClick="ButtonNuevo_Click"  />
 
 
-                        <asp:Button ID="ButtonGuardar" ValidationGroup="ValidacionGM" runat="server" Text="Guardar" class="btn btn-success"  />
+                        <asp:Button ID="ButtonGuardar" ValidationGroup="ValidacionGM" runat="server" Text="Guardar" class="btn btn-success" OnClick="ButtonGuardar_Click"  />
 
-                        <asp:Button ID="ButtonEliminar" ValidationGroup="ValidacionBE" runat="server" Text="Eliminar" class="btn btn-danger"  />
+                        <asp:Button ID="ButtonEliminar" ValidationGroup="ValidacionBE" runat="server" Text="Eliminar" class="btn btn-danger" OnClick="ButtonEliminar_Click"  />
 
                     </div>
                 </div>

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Registro de Articulo" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RegistrodeArticulos.aspx.cs" Inherits="BusinessSoft.Registros.RegistrodeArticulos" %>
+﻿<%@ Page Title="Registro Articulo" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RegistrodeArticulos.aspx.cs" Inherits="BusinessSoft.Registros.RegistrodeArticulos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

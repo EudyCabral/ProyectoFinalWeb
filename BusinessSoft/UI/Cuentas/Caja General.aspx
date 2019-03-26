@@ -16,11 +16,14 @@
 
 
             <%--EfectivoID--%>
-            <div class="form-group" style="text-align: center;">
+           
+                   <div class="form-group control-label row" style="align-items: center;">
+                <label for="TextBoxefectivo" class="col-md-5  input-sm" style="font-size: medium">Efectivo:</label>
 
-                <label style="font-size: xx-large;" class="control-label input-sm">$</label>
-
-                <label style="font-size: xx-large;" class="control-label input-sm">Efectivo</label>
+                <div class="col-md-3 col-sm-6 col-xs-6">
+                    <asp:TextBox ID="TextBoxefectivo" runat="server" type="text" Style="font-size: xx-large;"  class="form-control input-sm"  ForeColor="#00CC00" ></asp:TextBox>
+                  </div>
+                  
 
             </div>
 
@@ -35,7 +38,7 @@
                 <div class="text-center">
                     <div class="form-group">
 
-                        <asp:Button ID="Buttonrefrescar" runat="server" Text="Refrescar" class="btn btn-success" />
+                        <asp:Button ID="Buttonrefrescar" runat="server" Text="Refrescar" class="btn btn-success" OnClick="Buttonrefrescar_Click" />
 
                     </div>
                 </div>

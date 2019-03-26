@@ -1,8 +1,10 @@
 ﻿
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace ENTIDADES
 {
+    [Serializable]
     public class Articulos
     {
         [Key]

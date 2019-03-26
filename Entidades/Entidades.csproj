@@ -47,6 +47,8 @@
     <Compile Include="Clientes.cs" />
     <Compile Include="EntradadeInversiones.cs" />
     <Compile Include="Enums.cs" />
+    <Compile Include="ReciboDetalles.cs" />
+    <Compile Include="Recibos.cs" />
     <Compile Include="Usuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
