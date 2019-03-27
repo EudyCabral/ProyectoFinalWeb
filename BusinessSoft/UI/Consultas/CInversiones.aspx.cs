@@ -1,6 +1,6 @@
 ﻿using _1erParcial.Utilidades;
 using BLL;
-using ENTIDADES;
+using Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;

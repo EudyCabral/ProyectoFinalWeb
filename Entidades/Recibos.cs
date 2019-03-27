@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 
-namespace ENTIDADES
+namespace Entidades
 {
 
     [Serializable]
@@ -20,7 +20,7 @@ namespace ENTIDADES
         public DateTime UltimaFechadeVigencia { get; set; }
         
 
-        public virtual ICollection<ReciboDetalles> Detalle { get; set; }
+        public virtual List<ReciboDetalles> Detalle { get; set; }
 
         public Recibos()
         {

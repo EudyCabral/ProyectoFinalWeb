@@ -131,7 +131,7 @@
                             <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" />
                             <asp:BoundField DataField="Monto" HeaderText="Monto" />
 
-                            <asp:ButtonField CommandName="Delete" HeaderText="Eliminar" ShowHeader="True" Text="Eliminar" />
+                            <%--<asp:ButtonField CommandName="Delete" HeaderText="Eliminar" ShowHeader="True" Text="Eliminar" />--%>
 
                         </Columns>
                         <HeaderStyle BackColor="Black" Font-Bold="true" ForeColor="White" />

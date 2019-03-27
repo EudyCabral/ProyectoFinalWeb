@@ -1,6 +1,5 @@
 ﻿using BLL;
 using Entidades;
-using ENTIDADES;
 using Microsoft.Reporting.WebForms;
 using System;
 using System.Collections.Generic;

@@ -109,9 +109,12 @@
     <Content Include="Default.aspx" />
     <Content Include="Imagenes\baner1.png" />
     <Content Include="Login.aspx" />
+    <Content Include="LOGON.aspx" />
+    <Content Include="UI\Consultas\Articulos en Almacen.aspx" />
     <Content Include="UI\Consultas\CArticulos.aspx" />
     <Content Include="UI\Consultas\CClientes.aspx" />
     <Content Include="UI\Consultas\CInversiones.aspx" />
+    <Content Include="UI\Consultas\CRecibos.aspx" />
     <Content Include="UI\Consultas\CUsuarios.aspx" />
     <Content Include="UI\Cuentas\Caja General.aspx" />
     <Content Include="UI\Registros\EntradadeInversion.aspx" />
@@ -174,9 +177,11 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="UI\VentanasReportes\VRecibo.aspx" />
     <Content Include="UI\VentanasReportes\VReporteArticulos.aspx" />
     <Content Include="UI\VentanasReportes\VReporteClientes.aspx" />
     <Content Include="UI\VentanasReportes\VReporteEntradaCajaGeneral.aspx" />
+    <Content Include="UI\VentanasReportes\VReporteListaRecibos.aspx" />
     <Content Include="UI\VentanasReportes\VReporteUsuarios.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -208,6 +213,13 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="LOGON.aspx.cs">
+      <DependentUpon>LOGON.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LOGON.aspx.designer.cs">
+      <DependentUpon>LOGON.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -215,6 +227,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Consultas\Articulos en Almacen.aspx.cs">
+      <DependentUpon>Articulos en Almacen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\Articulos en Almacen.aspx.designer.cs">
+      <DependentUpon>Articulos en Almacen.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Consultas\CArticulos.aspx.cs">
       <DependentUpon>CArticulos.aspx</DependentUpon>
@@ -236,6 +255,13 @@
     </Compile>
     <Compile Include="UI\Consultas\CInversiones.aspx.designer.cs">
       <DependentUpon>CInversiones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Consultas\CRecibos.aspx.cs">
+      <DependentUpon>CRecibos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\CRecibos.aspx.designer.cs">
+      <DependentUpon>CRecibos.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Consultas\CUsuarios.aspx.cs">
       <DependentUpon>CUsuarios.aspx</DependentUpon>
@@ -294,6 +320,13 @@
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="UI\VentanasReportes\VRecibo.aspx.cs">
+      <DependentUpon>VRecibo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\VentanasReportes\VRecibo.aspx.designer.cs">
+      <DependentUpon>VRecibo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI\VentanasReportes\VReporteArticulos.aspx.cs">
       <DependentUpon>VReporteArticulos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -314,6 +347,13 @@
     </Compile>
     <Compile Include="UI\VentanasReportes\VReporteEntradaCajaGeneral.aspx.designer.cs">
       <DependentUpon>VReporteEntradaCajaGeneral.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\VentanasReportes\VReporteListaRecibos.aspx.cs">
+      <DependentUpon>VReporteListaRecibos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\VentanasReportes\VReporteListaRecibos.aspx.designer.cs">
+      <DependentUpon>VReporteListaRecibos.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\VentanasReportes\VReporteUsuarios.aspx.cs">
       <DependentUpon>VReporteUsuarios.aspx</DependentUpon>
@@ -364,6 +404,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Reportes\ListaEntrada.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reportes\ListaRecibos.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reportes\RRecibo.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reportes\ListaArticulosAlmacen.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

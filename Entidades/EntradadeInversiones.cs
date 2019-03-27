@@ -3,7 +3,7 @@
 using System.ComponentModel.DataAnnotations;
 
 
-namespace ENTIDADES
+namespace Entidades
 {
     public class EntradadeInversiones
     {

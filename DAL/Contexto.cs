@@ -1,5 +1,4 @@
 ﻿using Entidades;
-using ENTIDADES;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;

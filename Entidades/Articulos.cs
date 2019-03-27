@@ -2,7 +2,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace ENTIDADES
+namespace Entidades
 {
     [Serializable]
     public class Articulos

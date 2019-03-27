@@ -11,17 +11,23 @@ using System.Web.UI.WebControls;
 
 namespace BusinessSoft.UI.Consultas
 {
-    public partial class CUsuario : System.Web.UI.Page
+    public partial class CRecibos : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!Page.IsPostBack)
+            {
+                DesdeTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
+                HastaTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
+            }
         }
-        Expression<Func<Usuarios, bool>> filtro = x => true;
+        Expression<Func<Recibos, bool>> filtro = x => true;
+        Repositorio<Recibos> repositorio = new Repositorio<Recibos>();
+
         public void Mensaje()
         {
 
-            Repositorio<Usuarios> repositorio = new Repositorio<Usuarios>();
+           
             if (repositorio.GetList(filtro).Count() == 0)
             {
                 util.ShowToastr(this.Page, "No hay Registros", "Informacion", "info");
@@ -31,87 +37,68 @@ namespace BusinessSoft.UI.Consultas
         }
         public void RetornaLista()
         {
-     
-            Repositorio<Usuarios> repositorio = new Repositorio<Usuarios>();
+            
 
-            int id = 0 ;
+            int id = 0;
+            DateTime desde = Convert.ToDateTime(DesdeTextBox.Text);
+            DateTime hasta = Convert.ToDateTime(HastaTextBox.Text);
 
-     
+
+
             switch (FiltroDropDownList.SelectedIndex)
             {
                 case 0://ID
                     id = util.ToInt(CriterioTextBox.Text);
 
-                    filtro = c => c.UsuarioId == id;
+                    filtro = c => c.ReciboId == id && (c.Fecha >= desde && c.Fecha <= hasta);
 
 
                     Mensaje();
 
                     break;
 
-                case 1://  nombre
+                case 1://  clienteid
+                    id = util.ToInt(CriterioTextBox.Text);
 
+                    filtro = c => c.ClienteId == id && (c.Fecha >= desde && c.Fecha <= hasta);
 
-                    filtro = c => c.Nombre.Contains(CriterioTextBox.Text);
-
-                    Mensaje();
-                    break; 
-                 
-
-
-                case 2:// Cedula
-
-                    filtro = c => c.Cedula.Contains(CriterioTextBox.Text);
-
-
-                    Mensaje();
-                    break;
-
-                case 3:// Telefono
-            
-                        filtro = c => c.Telefono.Contains(CriterioTextBox.Text);
 
                     Mensaje();
 
                     break;
 
-                case 4:// E-mail
 
-                    filtro = c => c.Email.Contains(CriterioTextBox.Text);
+
+                case 2:// Nombre Cliente
+
+                    filtro = c => c.NombredeCliente.Contains(CriterioTextBox.Text) && (c.Fecha >= desde && c.Fecha <= hasta);
+
+
                     Mensaje();
                     break;
 
-          
-                case 5://Usuario
+                case 3:// Monto Total
 
-                    filtro = c => c.Usuario.Contains(CriterioTextBox.Text);
-
+                    filtro = c => c.MontoTotal == util.ToDecimal(CriterioTextBox.Text) && (c.Fecha >= desde && c.Fecha <= hasta);
 
                     Mensaje();
-                      break;
 
-             
-
-                case 6://TipodeAcceso
-                    filtro = c => c.TipodeAcceso.Contains(CriterioTextBox.Text);
-                    Mensaje();
                     break;
 
-                case 7://Todos
+                case 4://Todos
 
-                                      filtro = x => true;
+                    filtro = x => true && (x.Fecha >= desde && x.Fecha <= hasta);
                     Mensaje();
                     break;
 
             }
 
             var lista = repositorio.GetList(filtro);
-            Session["usuarios"] = lista;
-
+            Session["recibo"] = lista;
+           CriterioTextBox.Text = "";
             DatosGridView.DataSource = lista;
             DatosGridView.DataBind();
 
-            CriterioTextBox.Text = "";
             if (DatosGridView.Rows.Count > 0)
             {
                 ImprimirButton.Visible = true;
@@ -128,9 +115,7 @@ namespace BusinessSoft.UI.Consultas
         protected void ImprimirButton_Click(object sender, EventArgs e)
         {
 
-
-            Response.Write("<script>window.open('/UI/VentanasReportes/VReporteUsuarios.aspx','_blank');</script");
-        
+            Response.Write("<script>window.open('/UI/VentanasReportes/VReporteListaRecibos.aspx','_blank');</script");
 
         }
     }

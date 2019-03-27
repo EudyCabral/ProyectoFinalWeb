@@ -1,7 +1,6 @@
 ﻿
 using DAL;
 using Entidades;
-using ENTIDADES;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -181,9 +180,9 @@ namespace BLL
                 
                 if (recibos != null)
                 {
-                    var ArticuloAnt = _contexto.recibosdetalles.Where(x => x.ReciboId == recibo.ReciboId).AsNoTracking().ToList();
+                    var reciboanterior = _contexto.recibosdetalles.Where(x => x.ReciboId == recibo.ReciboId).AsNoTracking().ToList();
 
-                    foreach (var item in ArticuloAnt)
+                    foreach (var item in reciboanterior)
                     {
 
 
@@ -251,28 +250,7 @@ namespace BLL
             return paso;
         }
 
-
-
-        public static List<Recibos> GetList(Expression<Func<Recibos, bool>> expression)
-        {
-            Contexto contexto = new Contexto();
-            List<Recibos> recibo = new List<Recibos>();
-
-            try
-            {
-                recibo = contexto.recibos.Where(expression).ToList();
-
-                foreach (var item in recibo)
-                {
-                    item.Detalle.Count();
-                }
-                contexto.Dispose();
-            }
-            catch (Exception) { throw; }
-            return recibo;
-
-        }
-
+        
         public static bool ModEspecial(Recibos recibo)
         {
             bool paso = false;

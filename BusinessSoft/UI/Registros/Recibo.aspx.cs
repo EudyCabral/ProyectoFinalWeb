@@ -2,7 +2,6 @@
 using BLL;
 using DAL;
 using Entidades;
-using ENTIDADES;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -22,7 +21,7 @@ namespace BusinessSoft.UI.Registros
                 FechaTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
                 LlenaCombobox();
                 ViewState["Recibos"] = new Recibos();
-
+               
             }
         }
         ReciboBLL bLL = new ReciboBLL();
@@ -78,7 +77,6 @@ namespace BusinessSoft.UI.Registros
         private Recibos LlenaClase()
         {
             Recibos recibo = new Recibos();
-
             recibo = (Recibos)ViewState["Recibos"];
             recibo.ReciboId = util.ToInt(ReciboId.Text);
             recibo.ClienteId = util.ToInt(ClienteDropDownList.SelectedValue);
@@ -89,7 +87,7 @@ namespace BusinessSoft.UI.Registros
             recibo.Abono = 0;
             recibo.UltimaFechadeVigencia = Convert.ToDateTime(FechaTextBox.Text).AddDays(95);
 
-
+            recibo.Detalle = (List<ReciboDetalles>)ViewState["detalle"];
 
             return recibo;
         }
@@ -118,26 +116,31 @@ namespace BusinessSoft.UI.Registros
         {
 
             Recibos recibos = new Recibos();
-
+            List<ReciboDetalles> reciboDetalles = new List<ReciboDetalles>();
+ 
             //recibos = (Recibos)ViewState["Recibos"];
-            //ViewState["Recibos"] = new Recibos();
-
-            if(DetalleGridView.Rows.Count !=0)
+     
+            if (DetalleGridView.Rows.Count !=0)
             {
-                recibos.Detalle = (List<ReciboDetalles>)ViewState["Recibos"];
+                reciboDetalles = (List<ReciboDetalles>)ViewState["detalle"];
             }
 
-            recibos.AgregarDetalle(0, util.ToInt(ReciboId.Text), util.ToInt(ArticuloDropDownList.SelectedValue), util.RetornarNombre(ArticuloDropDownList.SelectedValue), Descripcion.Text, util.ToInt(Cantidadinput.Text), util.ToDecimal(Montoinput.Text));
-
-            ViewState["Recibos"] = recibos;
+            
 
 
-            DetalleGridView.DataSource = ((Recibos)ViewState["Recibos"]).Detalle;
+                reciboDetalles.Add(new ReciboDetalles(0, util.ToInt(ReciboId.Text), util.ToInt(ArticuloDropDownList.SelectedValue), util.RetornarNombre(ArticuloDropDownList.SelectedValue), Descripcion.Text, util.ToInt(Cantidadinput.Text), util.ToDecimal(Montoinput.Text)));
+              
+
+
+            ViewState["detalle"] = reciboDetalles;
+
+
+            DetalleGridView.DataSource = ViewState["detalle"];
             DetalleGridView.DataBind();
             
 
             decimal monto = 0;
-            foreach (var item in recibos.Detalle)
+            foreach (var item in reciboDetalles)
             {
                 monto += item.Monto;
             }
@@ -203,6 +206,8 @@ namespace BusinessSoft.UI.Registros
             {
 
                 util.ShowToastr(this.Page, "Registro Exitoso!!", "Guardado!!", "success");
+                ReportePrestamo(recibos.ReciboId);
+                Response.Write("<script>window.open('/UI/VentanasReportes/VRecibo.aspx','_blank');</script");
                 Limpiar();
             }
             else
@@ -246,7 +251,15 @@ namespace BusinessSoft.UI.Registros
                 Limpiar();
             }
         }
+        public void ReportePrestamo(int id)
+        {
+            Repositorio<Recibos> repositorio = new Repositorio<Recibos>();
+            Repositorio<ReciboDetalles> repo = new Repositorio<ReciboDetalles>();
 
+            Session["recibo"] = repositorio.GetList(x => x.ReciboId == id);
+            Session["recibod"] = repo.GetList(x => x.ReciboId == id);
+
+        }
         protected void DetalleGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
 

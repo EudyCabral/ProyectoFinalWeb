@@ -7,19 +7,28 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BusinessSoft {
+namespace BusinessSoft.UI.Consultas {
     
     
-    public partial class Login {
+    public partial class CRecibos {
         
         /// <summary>
-        /// form1 control.
+        /// Labelfiltro control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Label Labelfiltro;
+        
+        /// <summary>
+        /// FiltroDropDownList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList FiltroDropDownList;
         
         /// <summary>
         /// Label1 control.
@@ -31,6 +40,24 @@ namespace BusinessSoft {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
+        /// CriterioTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox CriterioTextBox;
+        
+        /// <summary>
+        /// BuscarButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BuscarButton;
+        
+        /// <summary>
         /// Label2 control.
         /// </summary>
         /// <remarks>
@@ -40,13 +67,13 @@ namespace BusinessSoft {
         protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// Loginstatus control.
+        /// DesdeTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LoginStatus Loginstatus;
+        protected global::System.Web.UI.WebControls.TextBox DesdeTextBox;
         
         /// <summary>
         /// Label3 control.
@@ -58,48 +85,30 @@ namespace BusinessSoft {
         protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// TextBoxenterUsuario control.
+        /// HastaTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxenterUsuario;
+        protected global::System.Web.UI.WebControls.TextBox HastaTextBox;
         
         /// <summary>
-        /// RequiredFieldValidator control.
+        /// DatosGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator;
+        protected global::System.Web.UI.WebControls.GridView DatosGridView;
         
         /// <summary>
-        /// TextBoxcontrasena control.
+        /// ImprimirButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxcontrasena;
-        
-        /// <summary>
-        /// RequiredFieldValidator1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
-        
-        /// <summary>
-        /// ButtonLogon control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonLogon;
+        protected global::System.Web.UI.WebControls.Button ImprimirButton;
     }
 }

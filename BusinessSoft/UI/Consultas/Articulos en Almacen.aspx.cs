@@ -11,17 +11,19 @@ using System.Web.UI.WebControls;
 
 namespace BusinessSoft.UI.Consultas
 {
-    public partial class CUsuario : System.Web.UI.Page
+    public partial class Articulos_en_Almacen : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
-        Expression<Func<Usuarios, bool>> filtro = x => true;
+        Expression<Func<ReciboDetalles, bool>> filtro = x => true;
+        Repositorio<ReciboDetalles> repositorio = new Repositorio<ReciboDetalles>();
+
         public void Mensaje()
         {
 
-            Repositorio<Usuarios> repositorio = new Repositorio<Usuarios>();
+
             if (repositorio.GetList(filtro).Count() == 0)
             {
                 util.ShowToastr(this.Page, "No hay Registros", "Informacion", "info");
@@ -31,87 +33,92 @@ namespace BusinessSoft.UI.Consultas
         }
         public void RetornaLista()
         {
-     
-            Repositorio<Usuarios> repositorio = new Repositorio<Usuarios>();
 
-            int id = 0 ;
 
-     
+            int id = 0;
+            //DateTime desde = Convert.ToDateTime(DesdeTextBox.Text);
+            //DateTime hasta = Convert.ToDateTime(HastaTextBox.Text);
+            id = util.ToInt(CriterioTextBox.Text);
+            decimal money = util.ToDecimal(CriterioTextBox.Text);
+
+
             switch (FiltroDropDownList.SelectedIndex)
             {
                 case 0://ID
-                    id = util.ToInt(CriterioTextBox.Text);
-
-                    filtro = c => c.UsuarioId == id;
-
-
-                    Mensaje();
-
-                    break;
-
-                case 1://  nombre
-
-
-                    filtro = c => c.Nombre.Contains(CriterioTextBox.Text);
-
-                    Mensaje();
-                    break; 
                  
+                    filtro = c => c.ID == id;
 
-
-                case 2:// Cedula
-
-                    filtro = c => c.Cedula.Contains(CriterioTextBox.Text);
-
-
-                    Mensaje();
-                    break;
-
-                case 3:// Telefono
-            
-                        filtro = c => c.Telefono.Contains(CriterioTextBox.Text);
 
                     Mensaje();
 
                     break;
 
-                case 4:// E-mail
+                case 1://Reciboid
+       
+                    filtro = c => c.ReciboId == id ;
 
-                    filtro = c => c.Email.Contains(CriterioTextBox.Text);
+
+                    Mensaje();
+
+                    break;
+
+
+
+                case 2:// ArticuloId
+
+                    filtro = c => c.ArticuloId == id;
+
+
                     Mensaje();
                     break;
 
-          
-                case 5://Usuario
+                case 3://Articulos
 
-                    filtro = c => c.Usuario.Contains(CriterioTextBox.Text);
-
+                    filtro = c => c.Articulo.Contains(CriterioTextBox.Text);
 
                     Mensaje();
-                      break;
 
-             
+                    break;
 
-                case 6://TipodeAcceso
-                    filtro = c => c.TipodeAcceso.Contains(CriterioTextBox.Text);
+
+                case 4://Descripcion
+
+                    filtro = c => c.Descripcion.Contains(CriterioTextBox.Text);
+
                     Mensaje();
+
+                    break;
+
+                case 5://Descripcion
+
+                    filtro = c => c.Cantidad == id;
+
+                    Mensaje();
+
+                    break;
+
+                case 6://
+
+                    filtro = c => c.Monto == money;
+
+                    Mensaje();
+
                     break;
 
                 case 7://Todos
 
-                                      filtro = x => true;
+                    filtro = x => true;
                     Mensaje();
                     break;
 
             }
 
             var lista = repositorio.GetList(filtro);
-            Session["usuarios"] = lista;
-
+            Session["recibodetalle"] = lista;
+            CriterioTextBox.Text = "";
             DatosGridView.DataSource = lista;
             DatosGridView.DataBind();
 
-            CriterioTextBox.Text = "";
             if (DatosGridView.Rows.Count > 0)
             {
                 ImprimirButton.Visible = true;
@@ -123,15 +130,6 @@ namespace BusinessSoft.UI.Consultas
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
             RetornaLista();
-        }
-
-        protected void ImprimirButton_Click(object sender, EventArgs e)
-        {
-
-
-            Response.Write("<script>window.open('/UI/VentanasReportes/VReporteUsuarios.aspx','_blank');</script");
-        
-
         }
     }
 }
