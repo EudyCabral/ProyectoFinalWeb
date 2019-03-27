@@ -65,7 +65,7 @@
                     </div>
                     <asp:Label ID="Label1" Style="text-align: center;" class="col-md-12 display-4" runat="server" Text="Compraventa Libertad"></asp:Label>
 
-                    <asp:Label ID="Label2" Style="text-align: center;" class="col-md-12 lead" runat="server" Text="Seguridad-Garantia y Confianza."></asp:Label>
+                    <asp:Label ID="Label2" Style="text-align: center;" class="col-md-12 lead" runat="server" Text="Seguridad-Garant&iacute;a y Confianza."></asp:Label>
                 </div>
             </div>
 
@@ -98,9 +98,9 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="/UI/Registros/RegistrodeCliente.aspx">Clientes</a>
-                                <a class="dropdown-item" href="/UI/Registros/RegistrodeArticulos.aspx">Articulos</a>
+                                <a class="dropdown-item" href="/UI/Registros/RegistrodeArticulos.aspx">Art&iacute;culos</a>
                                 <a class="dropdown-item" href="/UI/Registros/Recibo.aspx">Recibo</a>
-                                <a class="dropdown-item" href="/UI/Registros/EntradadeInversion.aspx">Entrada de Inversion</a>
+                                <a class="dropdown-item" href="/UI/Registros/EntradadeInversion.aspx">Entrada de Invers&iacute;on</a>
                                 <a class="dropdown-item" href="/UI/Registros/RegistrodeUsuario.aspx">Registro de Usuario</a>
                             </div>
                         </li>
@@ -113,11 +113,11 @@
                             <div class="dropdown-menu">
 
                                 <a class="dropdown-item" href="/UI/Consultas/CClientes.aspx">Clientes</a>
-                                <a class="dropdown-item" href="/UI/Consultas/CArticulos.aspx">Articulos</a>
+                                <a class="dropdown-item" href="/UI/Consultas/CArticulos.aspx">Art&iacute;culos</a>
                                 <a class="dropdown-item" href="/UI/Consultas/CRecibos.aspx">Recibo</a>
-                                   <a class="dropdown-item" href="UI/Consultas/Articulos en Almacen.aspx">Articulos en Almacen</a>
+                                   <a class="dropdown-item" href="/UI/Consultas/ArticulosenAlmacen.aspx">Art&iacute;culos en Almacen</a>
 
-                                <a class="dropdown-item" href="/UI/Consultas/CInversiones.aspx">Entrada de Inversion</a>
+                                <a class="dropdown-item" href="/UI/Consultas/CInversiones.aspx">Entrada de Inversi&oacute;n</a>
                                 <a class="dropdown-item" href="/UI/Consultas/CUsuarios.aspx">Consulta Usuario</a>
 
                             </div>

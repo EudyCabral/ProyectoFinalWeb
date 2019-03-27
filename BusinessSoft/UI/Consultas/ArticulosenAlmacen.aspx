@@ -1,10 +1,10 @@
-﻿<%@ Page Title="Almacen de Articulos" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Articulos en Almacen.aspx.cs" Inherits="BusinessSoft.UI.Consultas.Articulos_en_Almacen" %>
+﻿<%@ Page Title="Almacen de Articulos" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ArticulosenAlmacen.aspx.cs" Inherits="BusinessSoft.UI.Consultas.Articulos_en_Almacen" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
     <div class="rounded  " style="background-color: #000000; text-align: center;">
-        <div class="panel-heading" style="font-family: 'Times New Roman', Times, serif; font-size: x-large; color: gold;">Almacen de Articulos</div>
+        <div class="panel-heading" style="font-family: 'Times New Roman', Times, serif; font-size: x-large; color: gold;">Almac&eacute;n de Art&iacute;culos</div>
 
     </div>
 
@@ -22,9 +22,9 @@
                     <asp:DropDownList ID="FiltroDropDownList" runat="server" Class="form-control input-sm" Style="font-size: medium">
                          <asp:ListItem>ID</asp:ListItem>
                         <asp:ListItem>Recibo Id</asp:ListItem>
-                        <asp:ListItem>ArticuloId</asp:ListItem>
+                        <asp:ListItem>Articulo Id</asp:ListItem>
                         <asp:ListItem>Articulo</asp:ListItem>
-                        <asp:ListItem>Descripcion</asp:ListItem>
+                        <asp:ListItem>Descripci&oacute;n</asp:ListItem>
                         <asp:ListItem>Cantidad</asp:ListItem>
                         <asp:ListItem>Monto</asp:ListItem>
                         <asp:ListItem Selected="True">Todo</asp:ListItem>
@@ -82,7 +82,7 @@
         <div class="form-group row" style="align-items: center;">
 
             <div class="col-md-3 col-sm-3 col-xl-3 col-3">
-                <asp:Button ID="ImprimirButton" runat="server" Text="Imprimir" class="btn btn-success"  Enabled="True" EnableViewState="True" Visible="False"  />
+                <asp:Button ID="ImprimirButton" runat="server" Text="Imprimir" class="btn btn-success"  Enabled="True" EnableViewState="True" Visible="False" OnClick="ImprimirButton_Click"  />
             </div>
 
         </div>

@@ -17,10 +17,10 @@ namespace Entidades
         public int Cantidad { get; set; }
         public decimal Monto { get; set; }
 
- 
 
-        [ForeignKey("ArticuloId")]
-        public virtual Articulos articulos { get; set; }
+
+        //[ForeignKey("ArticuloId")]
+        //public virtual Articulos articulos { get; set; }
 
 
 

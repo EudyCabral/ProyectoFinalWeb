@@ -131,5 +131,11 @@ namespace BusinessSoft.UI.Consultas
         {
             RetornaLista();
         }
+
+        protected void ImprimirButton_Click(object sender, EventArgs e)
+        {
+            Response.Write("<script>window.open('/UI/VentanasReportes/VReporteAlmacen.aspx','_blank');</script");
+
+        }
     }
 }

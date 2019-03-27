@@ -63,7 +63,7 @@ namespace BusinessSoft.UI.Registros
             DetalleGridView.DataBind();
             MontoTotalTextBox.Visible = false;
             totalLabel.Visible = false;
-
+            ViewState["detalle"] = null;
         }
 
         public void LimpiarA()
@@ -77,7 +77,7 @@ namespace BusinessSoft.UI.Registros
         private Recibos LlenaClase()
         {
             Recibos recibo = new Recibos();
-            recibo = (Recibos)ViewState["Recibos"];
+
             recibo.ReciboId = util.ToInt(ReciboId.Text);
             recibo.ClienteId = util.ToInt(ClienteDropDownList.SelectedValue);
             recibo.NombredeCliente = util.RetornarNombreC(ClienteDropDownList.SelectedValue);
@@ -94,7 +94,7 @@ namespace BusinessSoft.UI.Registros
 
         private void LlenaCampos(Recibos recibos)
         {
-           
+            ReciboDetalles detalles = new ReciboDetalles();
             ReciboId.Text = recibos.ReciboId.ToString();
             FechaTextBox.Text = recibos.Fecha.ToString("yyyy-MM-dd");
             ClienteDropDownList.Text = recibos.ClienteId.ToString();
@@ -102,8 +102,9 @@ namespace BusinessSoft.UI.Registros
 
 
             //Cargar el detalle al Grid
-            ViewState["Recibos"] = recibos.Detalle;
-            DetalleGridView.DataSource = ViewState["Recibos"];
+            ViewState["detalle"] = recibos.Detalle;
+            DetalleGridView.DataSource = (List<ReciboDetalles>)ViewState["detalle"];
+
             DetalleGridView.DataBind();
 
         }
@@ -128,8 +129,8 @@ namespace BusinessSoft.UI.Registros
             
 
 
-                reciboDetalles.Add(new ReciboDetalles(0, util.ToInt(ReciboId.Text), util.ToInt(ArticuloDropDownList.SelectedValue), util.RetornarNombre(ArticuloDropDownList.SelectedValue), Descripcion.Text, util.ToInt(Cantidadinput.Text), util.ToDecimal(Montoinput.Text)));
-              
+                reciboDetalles.Add(new ReciboDetalles(0, util.ToInt(ReciboId.Text), util.ToInt(ArticuloDropDownList.SelectedValue),ArticuloDropDownList.SelectedItem.Text, Descripcion.Text, util.ToInt(Cantidadinput.Text), util.ToDecimal(Montoinput.Text)));
+             
 
 
             ViewState["detalle"] = reciboDetalles;

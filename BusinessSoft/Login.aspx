@@ -53,7 +53,7 @@
                     </div>
                     <asp:Label ID="Label1" Style="text-align: center;" class="col-md-12 display-4" runat="server" Text="Compraventa Libertad"></asp:Label>
 
-                    <asp:Label ID="Label2" Style="text-align: center;" class="col-md-12 lead" runat="server" Text="Seguridad-Garantia y Confianza."></asp:Label>
+                    <asp:Label ID="Label2" Style="text-align: center;" class="col-md-12 lead" runat="server" Text="Seguridad-Garant&iacute;a y Confianza."></asp:Label>
                 </div>
             </div>
 

@@ -51,7 +51,7 @@
             <div class="form-group row control-label" style="align-items: center;">
                 <label for="ClienteDropDownList" class="col-md-3 input-sm" style="font-size: medium">Cliente:</label>
                 <div class="col-md-3 col-sm-6 col-xs-6">
-                    <asp:DropDownList ID="ClienteDropDownList" class="form-control input-sm " runat="server"></asp:DropDownList>
+                    <asp:DropDownList ID="ClienteDropDownList" style="font-size: medium" class="form-control input-sm " runat="server"></asp:DropDownList>
 
                 </div>
 
@@ -63,7 +63,7 @@
             <div class="form-group row control-label" style="align-items: center;">
                 <label for="ArticuloDropDownList" class="col-md-3 input-sm" style="font-size: medium">Articulo:</label>
                 <div class="col-md-3 col-sm-6 col-xs-6">
-                    <asp:DropDownList ID="ArticuloDropDownList" class="form-control input-sm " runat="server"></asp:DropDownList>
+                    <asp:DropDownList ID="ArticuloDropDownList" class="form-control input-sm " style="font-size: medium" runat="server"></asp:DropDownList>
 
                 </div>
 
@@ -73,7 +73,7 @@
 
             <%--Descripcion--%>
             <div class="form-group row control-label" style="align-items: center;">
-                <label for="Descripcion" class="col-md-3 input-sm" style="font-size: medium">Descripcion:</label>
+                <label for="Descripcion" class="col-md-3 input-sm" style="font-size: medium">Descripci&oacute;n:</label>
                 <div class="col-md-3 col-sm-6 col-xs-6">
                     <asp:TextBox ID="Descripcion" runat="server" class="form-control input-sm" type="tel" Style="font-size: medium" TextMode="MultiLine"></asp:TextBox>
                 </div>

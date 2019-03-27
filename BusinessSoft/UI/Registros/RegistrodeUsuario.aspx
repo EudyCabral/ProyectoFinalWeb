@@ -78,7 +78,7 @@
 
             <%--Telefono--%>
             <div class="form-group control-label row" style="align-items: center;">
-                <label for="Telefonoinput" class="col-md-3 input-sm" style="font-size: medium">Telefono:</label>
+                <label for="Telefonoinput" class="col-md-3 input-sm" style="font-size: medium">Tel&eacute;fono:</label>
                 <div class="col-md-3 col-sm-6 col-xs-6">
                     <asp:TextBox ID="Telefonoinput" runat="server" class="form-control input-sm" type="tel" Style="font-size: medium" TextMode="Phone"></asp:TextBox>
                     <ajaxToolkit:MaskedEditExtender ID="MaskedEditExtender" BehaviorID="Telefonoinput_MaskedEditExtender" MaskType="Number " ClearMaskOnLostFocus="true" runat="server" TargetControlID="Telefonoinput" Mask="(999)-999-9999" />

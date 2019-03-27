@@ -18,26 +18,28 @@
         <div class="row ">
           <!--Columna 1-->
         <div class="col-sm-4" >
-      <h3>Mision &nbsp;</h3>
-      <p>Nuestro objetivo es dar el mejor servicio a los clientes,segurdidad 
-         y confianza para hacer de nosotros la mejor casa de empeño de la region.</p>
-            </div>
+      <h3>Misión &nbsp;</h3>
+      <p>Ofrecer a nuestros clientes la mejor atención,
+          Valorando los artículos de nuestros clientes,
+          Garantizando la seguridad y Confianza en el negocio.</p>
+            
+        </div>
          <!--Fin de la Columna -->
    
         <!--Columna 2-->
     
     <div class="col-sm-4">
-      <h3>Vision</h3>
-      <p>Procuramos ser transparentes, ser la mejor eleccion obtenida por los clientes
-        y tener las mejores atenciones,ser los que mas valoran los articulos del cliente.</p>     
+      <h3>Visión</h3>
+      <p>Ser la empresa de negocios de más confianza y que mejor presta en el mercado, 
+          a la vez ser percibidos como la Mejor Opción por el cliente.</p>     
     </div>
        <!--Fin de la Columna 
 
       <!--Columna 3-->
     <div class="col-sm-4" >
       <h3>Valores</h3>         
-    <ul>
-     <li>Comunicacion Honesta y Abirertas.</li>
+    <ul style="font-size:medium;">
+     <li>Comunicación Honesta y Abiertas.</li>
      <li>Agradecimiento.</li>
      <li>Transparencia y una cultura Abierta.</li>
      <li>Confianza.</li>

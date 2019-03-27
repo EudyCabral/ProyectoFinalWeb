@@ -25,7 +25,7 @@
                         <asp:ListItem>Cliente Id</asp:ListItem>
                         <asp:ListItem>Nombre</asp:ListItem>
                         <asp:ListItem>Cedula</asp:ListItem>
-                        <asp:ListItem>Direccion</asp:ListItem>
+                        <asp:ListItem>Direcci&oacute;n</asp:ListItem>
                         <asp:ListItem>T&eacute;lefono</asp:ListItem>
                         <asp:ListItem Selected="True">Todo</asp:ListItem>
                     </asp:DropDownList>

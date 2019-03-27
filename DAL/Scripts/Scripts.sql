@@ -92,8 +92,8 @@ create TABLE ReciboDetalles
            	        
 );
 go
-DELETE FROM Recibos WHERE ReciboId = '5';
-DELETE FROM ReciboDetalles WHERE ReciboId = '5';
+DELETE FROM Recibos WHERE ReciboId = '8';
+DELETE FROM ReciboDetalles WHERE ReciboId = '8';
 select* from ReciboDetalles
 select* from Recibos
 select* from Usuarios

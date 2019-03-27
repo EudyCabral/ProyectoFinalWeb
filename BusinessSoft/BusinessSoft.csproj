@@ -110,7 +110,7 @@
     <Content Include="Imagenes\baner1.png" />
     <Content Include="Login.aspx" />
     <Content Include="LOGON.aspx" />
-    <Content Include="UI\Consultas\Articulos en Almacen.aspx" />
+    <Content Include="UI\Consultas\ArticulosenAlmacen.aspx" />
     <Content Include="UI\Consultas\CArticulos.aspx" />
     <Content Include="UI\Consultas\CClientes.aspx" />
     <Content Include="UI\Consultas\CInversiones.aspx" />
@@ -178,6 +178,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="UI\VentanasReportes\VRecibo.aspx" />
+    <Content Include="UI\VentanasReportes\VReporteAlmacen.aspx" />
     <Content Include="UI\VentanasReportes\VReporteArticulos.aspx" />
     <Content Include="UI\VentanasReportes\VReporteClientes.aspx" />
     <Content Include="UI\VentanasReportes\VReporteEntradaCajaGeneral.aspx" />
@@ -228,12 +229,12 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UI\Consultas\Articulos en Almacen.aspx.cs">
-      <DependentUpon>Articulos en Almacen.aspx</DependentUpon>
+    <Compile Include="UI\Consultas\ArticulosenAlmacen.aspx.cs">
+      <DependentUpon>ArticulosenAlmacen.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UI\Consultas\Articulos en Almacen.aspx.designer.cs">
-      <DependentUpon>Articulos en Almacen.aspx</DependentUpon>
+    <Compile Include="UI\Consultas\ArticulosenAlmacen.aspx.designer.cs">
+      <DependentUpon>ArticulosenAlmacen.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Consultas\CArticulos.aspx.cs">
       <DependentUpon>CArticulos.aspx</DependentUpon>
@@ -326,6 +327,13 @@
     </Compile>
     <Compile Include="UI\VentanasReportes\VRecibo.aspx.designer.cs">
       <DependentUpon>VRecibo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\VentanasReportes\VReporteAlmacen.aspx.cs">
+      <DependentUpon>VReporteAlmacen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\VentanasReportes\VReporteAlmacen.aspx.designer.cs">
+      <DependentUpon>VReporteAlmacen.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\VentanasReportes\VReporteArticulos.aspx.cs">
       <DependentUpon>VReporteArticulos.aspx</DependentUpon>

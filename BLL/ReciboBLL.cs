@@ -28,28 +28,28 @@ namespace BLL
         public override bool Guardar(Recibos recibo)
         {
             bool paso = false;
-            Contexto contexto = new Contexto();
+          //  Contexto contexto = new Contexto();
 
 
 
             try
             {
-                if (contexto.recibos.Add(recibo) != null)
+                if (_contexto.recibos.Add(recibo) != null)
                 {
 
 
                     foreach (var item in recibo.Detalle)
                     {
-                        contexto.articulos.Find(item.ArticuloId).Inventario += item.Cantidad;
+                         _contexto.articulos.Find(item.ArticuloId).Inventario += item.Cantidad;
                     }
 
 
-                    contexto.efectivos.Find(recibo.EfectivoId).EfectivoCapital -= recibo.MontoTotal;
+                    _contexto.efectivos.Find(recibo.EfectivoId).EfectivoCapital -= recibo.MontoTotal;
 
-                    contexto.SaveChanges();
+                    _contexto.SaveChanges();
                     paso = true;
                 }
-                contexto.Dispose();
+                _contexto.Dispose();
             }
             catch (Exception) { throw; }
             return paso;
@@ -135,23 +135,23 @@ namespace BLL
         public override Recibos Buscar(int id)
         {
             Recibos recibo = new Recibos();
-            Contexto contexto = new Contexto();
+//            Contexto contexto = new Contexto();
 
             try
             {
-                recibo = contexto.recibos.Find(id);
+                recibo = _contexto.recibos.Find(id);
                 if (recibo != null)
                 {
                     recibo.Detalle.Count();
 
-                    foreach (var item in recibo.Detalle)
-                    {
+                    //foreach (var item in recibo.Detalle)
+                    //{
 
-                        string s = item.articulos.Nombre;
-                    }
+                    //    string s = item.articulos.Nombre;
+                    //}
 
                 }
-                contexto.Dispose();
+                _contexto.Dispose();
             }
             catch (Exception) { throw; }
             return recibo;
@@ -175,11 +175,14 @@ namespace BLL
                 _contexto = new Contexto();
 
 
-                Contexto contexto = new Contexto();
+           //     Contexto contexto = new Contexto();
 
                 
                 if (recibos != null)
                 {
+                  
+
+
                     var reciboanterior = _contexto.recibosdetalles.Where(x => x.ReciboId == recibo.ReciboId).AsNoTracking().ToList();
 
                     foreach (var item in reciboanterior)
@@ -190,9 +193,9 @@ namespace BLL
 
                         foreach (var item2 in repoA.GetList(x => x.ArticuloId == item.ArticuloId))
                         {
-                            contexto.articulos.Find(item.ArticuloId).Inventario -= item.Cantidad;
-                            contexto.SaveChanges();
-                        
+                            _contexto.articulos.Find(item.ArticuloId).Inventario -= item.Cantidad;
+                            //contexto.SaveChanges();
+
                         }
 
                         _contexto.Entry(item).State = System.Data.Entity.EntityState.Deleted;
@@ -208,9 +211,9 @@ namespace BLL
 
                         foreach (var item2 in repoA.GetList(x => x.ArticuloId == item.ArticuloId))
                         {
-                            contexto.articulos.Find(item.ArticuloId).Inventario += item.Cantidad;
-                            contexto.SaveChanges();
-                        
+                            _contexto.articulos.Find(item.ArticuloId).Inventario += item.Cantidad;
+                            //contexto.SaveChanges();
+
 
                         }
 
@@ -235,7 +238,7 @@ namespace BLL
                     Efectivos efectivos = repositorio.Buscar(recibo.EfectivoId);
                     efectivos.EfectivoCapital += diferencia;
                     repositorio.Modificar(efectivos);
-                    ;
+                    
                     _contexto.Entry(recibo).State = EntityState.Modified;
                 }
 
