@@ -1,91 +1,203 @@
-﻿<%@ Page Title="Login" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="LOGON.aspx.cs" Inherits="BusinessSoft.LOGON" %>
-
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-    <div class=" d-flex justify-content-center h-100">
-       <div class="panel-body ">
-            <div class="card  " style="width:250px" >
-
-                <div class="card-header " style="background-color: gold">
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Logon.aspx.cs" Inherits="BusinessSoft.Logon" %>
 
 
-                    <asp:Label ID="Label1" runat="server" Text="Iniciar Ses&iacute;on" Font-Size="XX-Large"></asp:Label>
+<%--<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head runat="server">
+	<title>Login V8</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form p-l-55 p-r-55 p-t-178">
+					<span class="login100-form-title">
+						Sign In
+					</span>
 
-                    <div class="d-flex justify-content-end social_icon">
+					<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
+						<input class="input100" type="text" name="username" placeholder="Username">
+						<span class="focus-input100"></span>
+					</div>
 
-                        <span><i class="fab fa-facebook-square"></i></span>
+					<div class="wrap-input100 validate-input" data-validate = "Please enter password">
+						<input class="input100" type="password" name="pass" placeholder="Password">
+						<span class="focus-input100"></span>
+					</div>
 
-                        <span><i class="fab fa-google-plus-square"></i></span>
+					<div class="text-right p-t-13 p-b-23">
+						<span class="txt1">
+							Forgot
+						</span>
 
-                        <span><i class="fab fa-twitter-square"></i></span>
+						<a href="#" class="txt2">
+							Username / Password?
+						</a>
+					</div>
 
-                    </div>
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Sign in
+						</button>
+					</div>
 
-                </div>
+					<div class="flex-col-c p-t-170 p-b-40">
+						<span class="txt1 p-b-9">
+							Don’t have an account?
+						</span>
 
-                <div class="card-body">
+						<a href="#" class="txt3">
+							Sign up now
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	 
+	
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
 
-                    <form>
+</body>
+</html>
+--%>
 
-                        <div class="input-group form-group">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head runat="server" >
+	<title>Login V1</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-pic js-tilt" data-tilt>
+					<img src="images/img-01.png" alt="IMG">
+				</div>
 
-                          
+				<form class="login100-form validate-form">
+					<span class="login100-form-title">
+						Member Login
+					</span>
 
-                                <span style="background-color: gold" class="col-2 form-control"><i class="fas fa-user"></i></span>
-                            
-                                <asp:TextBox class="form-control" ID="TextBoxenterUsuario" placeholder="Usuario" runat="server"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator" runat="server" ErrorMessage="Digite su Usuario" ControlToValidate="TextBoxenterUsuario" ValidationGroup="Entrar" ForeColor="Red"></asp:RequiredFieldValidator>
-                              
-                            </div>
+					<div class="wrap-input100 validate-input" data-validate = "Introduzca el Usuario">
+						<input class="input100" type="text" name="username" placeholder="Usuario">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
 
-           
+					<div class="wrap-input100 validate-input" data-validate = "Introduzca la Contraseña">
+						<input class="input100" type="password" name="pass" placeholder="Contraseña">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+					
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Login
+						</button>
+					</div>
 
+					<div class="text-center p-t-12">
+						<span class="txt1">
+							Forgot
+						</span>
+						<a class="txt2" href="#">
+							Username / Password?
+						</a>
+					</div>
 
-                        <div class=" input-group   form-group">
-                         
+					<div class="text-center p-t-136">
+						<a class="txt2" href="#">
+							Create your Account
+							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	
 
-                                <span style="background-color: gold" class=" col-2 form-control "><i class="fas fa-key"></i></span>
-                               
-                                <asp:TextBox placeholder="Contraseña" class="form-control" ID="TextBoxcontrasena" runat="server" TextMode="Password"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Digite su Contraseña" ControlToValidate="TextBoxcontrasena" ValidationGroup="Entrar" ForeColor="Red"></asp:RequiredFieldValidator>
+	
+<!--===============================================================================================-->	
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/tilt/tilt.jquery.min.js"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
 
-                       
-                       
-                            </div>
-
-
-
-                        <div class="form-group">
-                            <asp:Button Style="background-color: gold" ID="ButtonLogon" runat="server" Text="Login" class="btn float-right login_btn" OnClick="ButtonLogin_Click" ValidationGroup="Entrar" />
-
-                        </div>
-
-                    </form>
-
-                </div>
-
-             
-            <div class="card-footer" style="background-color: gold; height: 50px;">
-
-                <div class="d-flex justify-content-center links">
-                    <a href="#"></a>
-
-                </div>
-
-                <div class="d-flex justify-content-center">
-
-                    <a href="#"></a>
-
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-    </div>
-       
-
-    
-</asp:Content>
+</body>
+</html>

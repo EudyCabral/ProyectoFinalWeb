@@ -15,7 +15,6 @@ create table Usuarios
             Contraseña varchar(40)
 );
 
-drop table Articulos
 go
 create table Articulos
 (
@@ -76,8 +75,6 @@ create TABLE Recibos
 );
 go
 
-drop table ReciboDetalles
-drop table Recibos
 go
 create TABLE ReciboDetalles
 (			
@@ -92,14 +89,22 @@ create TABLE ReciboDetalles
            	        
 );
 go
+
 DELETE FROM Recibos WHERE ReciboId = '8';
 DELETE FROM ReciboDetalles WHERE ReciboId = '8';
+
+drop table ReciboDetalles
+drop table Recibos
+drop table Articulos
+drop table Clientes
+
 select* from ReciboDetalles
 select* from Recibos
-select* from Usuarios
-
 select* from Articulos
 select* from Clientes
+
+select* from Usuarios
 select* from Efectivos
 select* from EntradadeInversiones
+
 insert into Efectivos(Nombre,EfectivoCapital) Values('Inicializacion',0);

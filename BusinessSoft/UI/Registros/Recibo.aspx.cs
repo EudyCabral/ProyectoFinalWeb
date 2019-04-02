@@ -21,10 +21,16 @@ namespace BusinessSoft.UI.Registros
                 FechaTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
                 LlenaCombobox();
                 ViewState["Recibos"] = new Recibos();
-               
+
             }
         }
+
+
         ReciboBLL bLL = new ReciboBLL();
+        //Global Guardar & Button Agregar
+        Repositorio<Efectivos> repositorio = new Repositorio<Efectivos>();
+        //Global Validaragregar & Button Agregar
+        List<ReciboDetalles> reciboDetalles = new List<ReciboDetalles>();
 
         private void LlenaCombobox()
         {
@@ -68,12 +74,13 @@ namespace BusinessSoft.UI.Registros
 
         public void LimpiarA()
         {
-           
+
             Cantidadinput.Text = "";
             Descripcion.Text = "";
             Montoinput.Text = "";
             FechaTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
         }
+
         private Recibos LlenaClase()
         {
             Recibos recibo = new Recibos();
@@ -111,26 +118,49 @@ namespace BusinessSoft.UI.Registros
 
 
 
+        public bool ValidarAgregar()
+        {
+            bool paso = false;
+            if (util.ToDecimal(Montoinput.Text) < 1)
+            {
+                util.ShowToastr(this.Page, "El monto debe de ser  mayor a 0", "Informacion", "info");
+                paso = true;
+            }
+
+
+            foreach (var item in repositorio.GetList(x => x.EfectivoId == 1))
+            {
+
+                if (item.EfectivoCapital < util.ToDecimal(Montoinput.Text))
+                {
+                    util.ShowToastr(this.Page, "La Compraventa No dispone de Esa Cantidad de dinero", "Informacion", "info");
+                    paso = true;
+                }
+            }
+
+            return paso;
+        }
+
 
 
         protected void AgregarButton_Click(object sender, EventArgs e)
         {
 
             Recibos recibos = new Recibos();
-            List<ReciboDetalles> reciboDetalles = new List<ReciboDetalles>();
- 
-            //recibos = (Recibos)ViewState["Recibos"];
-     
-            if (DetalleGridView.Rows.Count !=0)
+
+            if (ValidarAgregar() == true)
+            {
+                return;
+            }
+
+
+            if (DetalleGridView.Rows.Count != 0)
             {
                 reciboDetalles = (List<ReciboDetalles>)ViewState["detalle"];
             }
 
-            
 
-
-                reciboDetalles.Add(new ReciboDetalles(0, util.ToInt(ReciboId.Text), util.ToInt(ArticuloDropDownList.SelectedValue),ArticuloDropDownList.SelectedItem.Text, Descripcion.Text, util.ToInt(Cantidadinput.Text), util.ToDecimal(Montoinput.Text)));
-             
+            reciboDetalles.Add(new ReciboDetalles(0, util.ToInt(ReciboId.Text), util.ToInt(ArticuloDropDownList.SelectedValue), ArticuloDropDownList.SelectedItem.Text, Descripcion.Text, util.ToInt(Cantidadinput.Text), util.ToDecimal(Montoinput.Text)));
 
 
             ViewState["detalle"] = reciboDetalles;
@@ -138,7 +168,7 @@ namespace BusinessSoft.UI.Registros
 
             DetalleGridView.DataSource = ViewState["detalle"];
             DetalleGridView.DataBind();
-            
+
 
             decimal monto = 0;
             foreach (var item in reciboDetalles)
@@ -157,26 +187,38 @@ namespace BusinessSoft.UI.Registros
             Limpiar();
         }
 
-        protected void ButtonGuardar_Click(object sender, EventArgs e)
+
+
+        public bool ValidarGuardar()
         {
-            Repositorio<Efectivos> repositorio = new Repositorio<Efectivos>();
-           
+            bool paso = false;
             if (DetalleGridView.Rows.Count == 0)
             {
                 util.ShowToastr(this.Page, "Necesita Agregar un Articulo para Completar el Recibo", "Informacion", "info");
-                
-                return;
+
+                paso = true;
             }
 
             foreach (var item in repositorio.GetList(x => x.EfectivoId == 1))
             {
 
-                if (item.EfectivoCapital < util.ToDecimal(Montoinput.Text))
+                if (item.EfectivoCapital < util.ToDecimal(MontoTotalTextBox.Text))
                 {
                     util.ShowToastr(this.Page, "La Compraventa No dispone de Esa Cantidad de dinero", "Informacion", "info");
-                    return;
+                    paso = true;
                 }
             }
+
+            return paso;
+        }
+        protected void ButtonGuardar_Click(object sender, EventArgs e)
+        {
+
+            if (ValidarGuardar() == true)
+            {
+                return;
+            }
+
 
             Recibos recibos = LlenaClase();
             bool Paso = false;
@@ -261,14 +303,88 @@ namespace BusinessSoft.UI.Registros
             Session["recibod"] = repo.GetList(x => x.ReciboId == id);
 
         }
+
+      
+        //protected void DetalleGridView_RowDataBound(object sender, GridViewRowEventArgs e)
+        //{
+
+        //    if (e.Row.RowType == DataControlRowType.DataRow)
+        //        e.Row.Attributes.Add("OnClick", "" + ClientScript.GetPostBackClientHyperlink(DetalleGridView, "Select$" + e.Row.RowIndex.ToString()) + ";");
+        //}
+
+        //protected void DetalleGridView_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    GridViewRow row = DetalleGridView.SelectedRow;
+        //    ViewState["EliminarDetalle"] = row.RowIndex;
+        //}
+
+
+        //protected void EliminarButtonDetalle_Click(object sender, EventArgs e)
+        //{
+
+       
+        //        if (ViewState["EliminarDetalle"] != null)
+        //        {
+        //        reciboDetalles = (List<ReciboDetalles>)ViewState["detalle"];
+
+        //        reciboDetalles.RemoveAt((int)ViewState["EliminarDetalle"]);
+
+        //        //((List<ReciboDetalles>)ViewState["detalle"]).RemoveAt((int)ViewState["EliminarDetalle"]);
+        //        ViewState["detalle"] = reciboDetalles;
+
+        //        decimal monto = 0;
+
+        //        foreach (var item in reciboDetalles)
+        //        {
+        //            monto -= item.Monto;
+        //        }
+
+        //        monto *= (-1);
+        //        MontoTotalTextBox.Text = monto.ToString();
+
+        //        DetalleGridView.DataSource = ViewState["detalle"];
+        //        DetalleGridView.DataBind();
+
+        //        if(((Recibos)ViewState["Recibos"]).Detalle.Count() > 0)
+        //        {
+        //            ((Recibos)ViewState["Recibos"]).Detalle.RemoveAt((int)ViewState["EliminarDetalle"]);
+        //            this.BindGrid();
+        //        }
+
+        //    }
+        //    else
+        //    {
+
+        //        util.ShowToastr(this.Page, "No pudo Remover Fila, debe seleccionar fila deceada!!", "Informacion!!", "info");
+
+        //    }
+        //}
+
         protected void DetalleGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+          
+            reciboDetalles = (List<ReciboDetalles>)ViewState["detalle"];
 
+            reciboDetalles.RemoveAt(e.RowIndex);
+           
+            ViewState["detalle"] = reciboDetalles;
 
+            decimal monto = 0;
 
+            foreach (var item in reciboDetalles)
+            {
+                monto -= item.Monto;
+            }
+
+            monto *= (-1);
+            MontoTotalTextBox.Text = monto.ToString();
+
+            DetalleGridView.DataSource = ViewState["detalle"];
+            DetalleGridView.DataBind();
+
+          
         }
 
-
-
+        
     }
 }
