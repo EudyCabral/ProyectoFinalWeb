@@ -37,7 +37,7 @@ namespace BusinessSoftTest
         {
           
             bool paso;
-            usuarios.UsuarioId = 1;
+            usuarios.UsuarioId = 2;
             usuarios.Nombre = "Eudes Cabral";
             usuarios.Usuario = "Eudes02";
             usuarios.Contraseña = "122017";
@@ -52,7 +52,7 @@ namespace BusinessSoftTest
         [TestMethod()]
         public void BuscarTest()
         {
-            int id = 1;
+            int id = 2;
             Usuarios usuarios = new Usuarios();
             usuarios = BLL.Buscar(id);
             Assert.IsNotNull(usuarios);
@@ -69,7 +69,7 @@ namespace BusinessSoftTest
         public void EliminarTest()
         {
             bool paso;
-            int id = 1;
+            int id = 2;
             paso = BLL.Eliminar(id);
             Assert.AreEqual(paso, true);
         }

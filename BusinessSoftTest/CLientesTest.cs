@@ -10,19 +10,20 @@ namespace BusinessSoftTest
     {
 
         Repositorio<Clientes> bll = new Repositorio<Clientes>();
-        bool paso;
+    
         [TestMethod]
         public void GuardarTest()
         {
+    
+            bool paso;
             Clientes clientes = new Clientes();
-
             clientes.ClienteId = 0;
             clientes.Nombre = "Eudy Cabral Burgos";
             clientes.Cedula = "402-7896542-1";
             clientes.Direccion = "Urb. Turin";
             clientes.Telefono = "809-712-4606";
-            
-            Assert.IsTrue(bll.Guardar(clientes));
+            paso = bll.Guardar(clientes);
+            Assert.AreEqual(paso, true);
         }
 
 
@@ -31,7 +32,7 @@ namespace BusinessSoftTest
         {
             bool paso;
             Clientes clientes = new Clientes();
-            clientes.ClienteId = 1;
+            clientes.ClienteId = 2;
             clientes.Nombre = "Eudes Rafael Cabral de la Cruz Dr";
             clientes.Cedula = "402-7896542-1";
             clientes.Direccion = "Urb. Turin";
@@ -60,7 +61,7 @@ namespace BusinessSoftTest
         public void EliminarTest()
         {
             bool paso;
-            int id = 1;
+            int id = 2;
             paso = bll.Eliminar(id);
             Assert.AreEqual(paso, true);
         }
