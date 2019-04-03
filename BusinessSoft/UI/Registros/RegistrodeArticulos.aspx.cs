@@ -73,6 +73,24 @@ namespace BusinessSoft.Registros
 
         }
 
+
+        public bool VerificarArticulo(string Nombre)
+        {
+            bool paso = false;
+
+            var cliente = repositorio.GetList(x => x.Nombre.Contains(Nombre)).Count;
+            if (cliente != 0)
+            {
+
+                util.ShowToastr(this, "Ya Existe un Articulo con ese Nombre", "Fallo", "error");
+
+                paso = true;
+            }
+
+            return paso;
+
+        }
+
         protected void ButtonGuardar_Click(object sender, EventArgs e)
         {
             bool paso = false;
@@ -83,6 +101,10 @@ namespace BusinessSoft.Registros
 
             if (articulos.ArticuloId == 0)
             {
+                if(VerificarArticulo(articulos.Nombre) == true)
+                {
+                    return;
+                }
                 paso = repositorio.Guardar(articulos);
             }
             else

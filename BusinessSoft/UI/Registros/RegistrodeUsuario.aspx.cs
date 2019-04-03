@@ -4,6 +4,7 @@ using Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -15,7 +16,7 @@ namespace BusinessSoft.Registros
         {
 
         }
-
+        Repositorio<Usuarios> repositorio = new Repositorio<Usuarios>();
         public Usuarios LlenaClase()
 
         {
@@ -63,10 +64,10 @@ namespace BusinessSoft.Registros
         }
 
 
-
+        
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
-            Repositorio<Usuarios> repositorio = new Repositorio<Usuarios>();
+           
 
             Usuarios usuario = repositorio.Buscar(Convert.ToInt32(usuarioid.Text));
             if (usuario != null)
@@ -85,9 +86,52 @@ namespace BusinessSoft.Registros
             Limpiar();
         }
 
+        Expression<Func<Usuarios, bool>> filtro = x => true;
+        public bool VerificarUsuario(string usuario,string cedula,string telefono)
+        {
+            bool paso = false;
+            filtro = x => x.Usuario.Contains(usuario);
+
+            if (repositorio.GetList(filtro).Count() != 0)
+            {
+
+                util.ShowToastr(this, "Ya Existe un Usuario con este nombre.", "Fallo", "error");
+
+                paso = true;
+            }
+            
+            filtro = x => x.Cedula.Contains(cedula);
+
+            if (repositorio.GetList(filtro).Count() != 0)
+            {
+
+                util.ShowToastr(this, "Ya Existe un Usuario con este Numero de Cedula.", "Fallo", "error");
+
+                paso = true;
+            }
+
+            filtro = x => x.Telefono.Contains(telefono);
+
+            if (repositorio.GetList(filtro).Count() != 0)
+            {
+
+                util.ShowToastr(this, "Ya Existe un Usuario con este Numero de Telefono.", "Fallo", "error");
+
+                paso = true;
+            }
+
+
+
+
+
+            return paso;
+
+        }
+
+
         protected void ButtonGuardar_Click1(object sender, EventArgs e)
         {
-            Repositorio<Usuarios> repositorio = new Repositorio<Usuarios>();
+          
 
             Usuarios usuarios = LlenaClase();
 
@@ -95,12 +139,15 @@ namespace BusinessSoft.Registros
 
 
 
-            //todo: validaciones adicionales
 
             if (usuarios.UsuarioId == 0)
-
+            {
+                if (VerificarUsuario(usuarios.Usuario, usuarios.Cedula, usuarios.Telefono) == true)
+                {
+                    return;
+                }
                 paso = repositorio.Guardar(usuarios);
-
+            }
             else
             {
 
@@ -133,7 +180,7 @@ namespace BusinessSoft.Registros
 
         protected void ButtonEliminar_Click1(object sender, EventArgs e)
         {
-            Repositorio<Usuarios> repositorio = new Repositorio<Usuarios>();
+         
 
             int id = Convert.ToInt32(usuarioid.Text);
 

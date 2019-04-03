@@ -362,8 +362,10 @@ namespace BusinessSoft.UI.Registros
 
         protected void DetalleGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-          
-            reciboDetalles = (List<ReciboDetalles>)ViewState["detalle"];
+            totalLabel.Visible = true;
+            MontoTotalTextBox.Visible = true;
+
+           reciboDetalles = (List<ReciboDetalles>)ViewState["detalle"];
 
             reciboDetalles.RemoveAt(e.RowIndex);
            

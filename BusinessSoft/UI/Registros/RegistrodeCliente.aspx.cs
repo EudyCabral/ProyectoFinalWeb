@@ -4,6 +4,7 @@ using Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -79,14 +80,38 @@ namespace BusinessSoft.Registros
             Limpiar();
         }
 
+        public bool VerificarClientes(string cedula)
+        {
+            bool paso = false;
+            
+            var cliente = repositorio.GetList(x=> x.Cedula.Contains(cedula)).Count;
+            if (cliente != 0 )
+            {
+
+                util.ShowToastr(this, "Ya Existe un Cliente con este Numero de Cedula", "Fallo", "error");
+
+                paso = true;
+            }
+
+            return paso;
+
+        }
+
         protected void ButtonGuardar_Click(object sender, EventArgs e)
         {
             bool paso = false;
             Clientes clientes = Llenaclase();
             int id = util.ToInt(Clienteid.Text);
 
+
+       
             if (clientes.ClienteId == 0)
             {
+                if (VerificarClientes(clientes.Cedula) == true)
+                {
+                    return;
+                }
+
                 paso = repositorio.Guardar(clientes);
             }
             else

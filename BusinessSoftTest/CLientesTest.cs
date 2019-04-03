@@ -15,13 +15,14 @@ namespace BusinessSoftTest
         public void GuardarTest()
         {
             Clientes clientes = new Clientes();
+
             clientes.ClienteId = 0;
             clientes.Nombre = "Eudy Cabral Burgos";
             clientes.Cedula = "402-7896542-1";
             clientes.Direccion = "Urb. Turin";
             clientes.Telefono = "809-712-4606";
-            paso = bll.Guardar(clientes);
-            Assert.AreEqual(paso, true);
+            
+            Assert.IsTrue(bll.Guardar(clientes));
         }
 
 

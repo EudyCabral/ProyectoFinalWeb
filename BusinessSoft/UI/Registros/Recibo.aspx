@@ -37,8 +37,9 @@
                 <label style="font-size: medium;" for="FechaTextbox" class="col-md-2   input-sm">Fecha:</label>
 
                 <div class="col-md-2 col-sm-6 col-xs-6">
-                    <asp:TextBox ID="FechaTextBox" runat="server" placeholder="0" class="form-control input-sm" Style="font-size: medium" TextMode="Date"></asp:TextBox>
+                    <asp:TextBox ID="FechaTextBox" runat="server" placeholder="0" class="form-control input-sm" Style="font-size: medium" TextMode="Date" ></asp:TextBox>
                 </div>
+                  <asp:RequiredFieldValidator ID="RequiredFieldValidatorFecha" runat="server" Text="*" ValidateRequestMode="Inherit" ControlToValidate="FechaTextBox" ValidationGroup="ValidacionGM" ForeColor="Red" Font-Bold="True" Font-Size="X-Large"></asp:RequiredFieldValidator>
 
             </div>
 

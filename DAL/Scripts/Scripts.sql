@@ -97,6 +97,8 @@ drop table ReciboDetalles
 drop table Recibos
 drop table Articulos
 drop table Clientes
+drop table EntradadeInversiones
+drop table Efectivos
 
 select* from ReciboDetalles
 select* from Recibos
